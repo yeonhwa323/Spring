@@ -1,0 +1,20 @@
+
+5월 21, 2024 09:39:34.122 NEW SESSION
+5월 21, 2024 09:39:34.122 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 12:08:04.268 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 12:09:13.369 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 12:10:56.413 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 13:39:36.756 [17156:7432:0521/133936.756:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+5월 21, 2024 14:25:21.136 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 14:29:37.305 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 15:35:43.752 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 16:35:33.31 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 21, 2024 16:35:53.873 [9960:4540:0521/163553.873:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -118
+
+5월 22, 2024 08:29:50.432 NEW SESSION
+5월 22, 2024 08:29:50.432 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 22, 2024 10:15:11.721 [9728:15076:0522/101511.721:ERROR:device_event_log_impl.cc(195)] [10:15:11.720] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+5월 22, 2024 11:24:17.818 [9728:15076:0522/112417.816:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 22, 2024 13:21:24.494 [9728:8364:0522/132124.494:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+5월 22, 2024 16:28:42.134 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 22, 2024 17:13:54.807 Created TensorFlow Lite XNNPACK delegate for CPU.

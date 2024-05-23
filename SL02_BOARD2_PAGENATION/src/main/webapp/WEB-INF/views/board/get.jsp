@@ -38,11 +38,13 @@ span.material-symbols-outlined {
 				<tbody>
 					<tr>
 						<th>글번호</th>
-						<td><input type="text" name="bno" class="full" readonly="readonly" value="${ boardVO.bno }"></td>
+						<td><input type="text" name="bno" class="full"
+							readonly="readonly" value="${ boardVO.bno }"></td>
 					</tr>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="title" class="full" readonly="readonly" value="${ boardVO.title }"></td>
+						<td><input type="text" name="title" class="full"
+							readonly="readonly" value="${ boardVO.title }"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
@@ -51,7 +53,8 @@ span.material-symbols-outlined {
 					</tr>
 					<tr>
 						<th>작성자</th>
-						<td><input type="text" name="writer" class="short" readonly="readonly" value="${ boardVO.writer }"></td>
+						<td><input type="text" name="writer" class="short"
+							readonly="readonly" value="${ boardVO.writer }"></td>
 					</tr>
 				</tbody>
 				<tfoot>
@@ -65,55 +68,59 @@ span.material-symbols-outlined {
 				</tfoot>
 			</table>
 
-			<input type="hidden" name="${ _csrf.parameterName }"
-				value="${ _csrf.token }">
+			<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }"> 
+			
+			<input type="hidden" name="pageNum" value="${ criteria.pageNum}"> 
+			<input type="hidden" name="amount" value="${ criteria.amount}">
 
 		</form>
 	</div>
 
-<script>
-	
-$(function(){
-    
-    var formObj = $("form");
-    
-    $("tfoot button").on("click",function(){
-       
-      var operation = $(this).data("oper"); 
-      
-      if (operation === 'modify') {
-        // location.href="/board/modify?bno=2"
-        formObj
-             .attr({
-                "action":"/board/modify",
-                "method":"get"
-             })
-             .submit();
-        
-     }else if (operation === 'remove') {
-        // location.href="/board/remove?bno=2"
-        if ( confirm("정말 삭제할거냐아? ")) {
-           formObj
-             .attr({
-                "action":"/board/remove",
-                "method":"get"
-             })
-             .submit();
-        }      
-     }else if (operation === 'list') {
-        // location.href="/board/list"
-        formObj
-          .attr({
-             "action":"/board/list",
-             "method":"get"
-          })
-          .empty()
-          .submit();
-     	}
-    });
-    
- }); // document.ready
+	<script>
+		$(function() {
 
-</script>
+			var formObj = $("form");
+
+			$("tfoot button").on("click", function() {
+
+				var operation = $(this).data("oper");
+
+				if (operation === 'modify') {
+					// location.href="/board/modify?bno=2"
+					let pageNumTag = $(":hidden[name='pageNum']").clone();
+					let amountTag = $(":hidden[name='amount']").clone();
+					
+					formObj.attr({
+						"action" : "/board/modify",
+						"method" : "get"
+					})
+					.submit();
+
+				} else if (operation === 'remove') {
+					// location.href="/board/remove?bno=2"
+					if (confirm("정말 삭제할거냐아? ")) {
+						formObj.attr({
+							"action" : "/board/remove",
+							"method" : "get"
+						}).submit();
+					}
+				} else if (operation === 'list') {
+					// location.href="/board/list"
+					let pageNumTag = $(":hidden[name='pageNum']").clone();
+					let amountTag = $(":hidden[name='amount']").clone();
+					
+					formObj.attr({
+						"action" : "/board/list",
+						"method" : "get"
+					})
+					.empty()
+					.append( pageNumTag)
+					.append( amountTag )
+					.submit();
+				}
+			});
+
+		}); // document.ready
+	</script>
 </body>
 </html>

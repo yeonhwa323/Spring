@@ -1,0 +1,10 @@
+Ctrl + F11
+
+BEGIN
+    FOR i IN 1 .. 158
+    LOOP 
+      INSERT INTO tbl_board (bno, title, content, writer)
+      VALUES ( seq_board.nextval ,  'PL SQL-' || i, 'PL SQL-' || i, '홍길동' ) ;
+    END LOOP;  
+END;
+COMMIT;

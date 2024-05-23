@@ -64,6 +64,7 @@ public class BoardController {
 		return "/board/get"; // WEB-INF/views + /board/get + .jsp
 	}
 	*/
+	
 	@GetMapping(value = { "/get" , "/modify" })
 	public void get(Model model, @RequestParam("bno") Long bno ) {
 		log.info("> BoardController.get()...");

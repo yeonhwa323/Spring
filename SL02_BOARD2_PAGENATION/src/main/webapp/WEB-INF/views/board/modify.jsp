@@ -64,8 +64,9 @@ span.material-symbols-outlined {
 				</tfoot>
 			</table>
 
-			<input type="hidden" name="${ _csrf.parameterName }"
-				value="${ _csrf.token }">
+			<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
+			<input type="hidden" name="pageNum" value="${ criteria.pageNum}"> 
+			<input type="hidden" name="amount" value="${ criteria.amount}">
 
 		</form>
 	</div>
@@ -84,12 +85,17 @@ $(function(){
         formObj.submit();           
      } else if (operation === 'list') {
         // location.href="/board/list"
+        let pageNumTag = $(":hidden[name='pageNum']").clone();
+		let amountTag = $(":hidden[name='amount']").clone();
+		
         formObj
           .attr({
              "action":"/board/list",
              "method":"get"
           })
           .empty()
+          .append( pageNumTag)
+		  .append( amountTag )
           .submit();
      	}
     });

@@ -7,8 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <link rel="shortcut icon" href="/images/SiSt.ico">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/cdn-main/example.css">
 <script src="/resources/cdn-main/example.js"></script>
 <style>
@@ -46,8 +45,8 @@ span.material-symbols-outlined {
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea name="content" class="full" readonly="readonly"><c:out
-									value="${ boardVO.content }"></c:out></textarea></td>
+						<td><textarea name="content" class="full" readonly="readonly">
+						<c:out value="${ boardVO.content }"></c:out></textarea></td>
 					</tr>
 					<tr>
 						<th>작성자</th>

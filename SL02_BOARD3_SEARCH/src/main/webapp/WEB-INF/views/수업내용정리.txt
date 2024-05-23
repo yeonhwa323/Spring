@@ -1,0 +1,25 @@
+--24.05.22
+
+1. SL02_BOARD2_PAGINATION 프로젝트 복사 + 붙이기
+	 ㄴ SL02_BOARD3_SEARCH 프로젝트명 수정
+2. pom.xml 수정
+3. servers
+4. ojdbc6.jar 설정
+5. 실행 테스트
+6. webapp
+   ㄴ board	
+	   ㄴ list 추가
+	/board/list 요청 URL 사용할 목적
+	
+	Ctrl+F11
+-------------------------------
+1. 게시판의 검색기능
+	1) 단일 항목 검색 : 제목(t)/내용(c)/작성자(w) 검색
+	2) 다중 항목 검색 : 제목+내용=("tc") ,제목+작성자=("tw') 
+						,제목+내용+작성자=("tcw")
+
+2. 검색조건 - select,	checkbox  type
+   검색어   - input				  keyword
+   
+3. list.jsp 검색부분 추가
+4. Criteria

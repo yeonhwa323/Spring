@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import org.doit.ik.domain.BoardVO;
+import org.doit.ik.domain.Criteria;
+import org.doit.ik.domain.pageDTO;
 import org.doit.ik.service.BoardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,12 +35,26 @@ public class BoardController {
 	// @Autowired
 	private BoardService boardService;
 
+	// 페이징 처리 X 컨트롤러메서드
+	/*
 	@GetMapping("/list")
 	public void list(Model model) {
 		log.info("> BoardController.list()...");
 		model.addAttribute("list",this.boardService.getList());
 	}
-
+	*/
+	// *** 페이징 처리 O 컨트롤러메서드 ***
+	// http://localhost/board/list		   1        5 [기본]
+	// http://localhost/board/list?pageNum=3&amount=10	
+	@GetMapping("/list")
+	public void list(Model model, Criteria criteria) {
+		log.info("> BoardController.list()...");
+		model.addAttribute("list", this.boardService.getListWithPaging(criteria));
+		// 1 2 [3] 4 5 6 7 8 9 10 >
+		int total = this.boardService.getTotal(criteria);
+		model.addAttribute("pageMaker", new pageDTO(criteria, total));		
+	}
+	
 	// <a href ='board/register'>
 	@GetMapping("/register")
 	public void register(Model model) {
@@ -64,21 +81,35 @@ public class BoardController {
 		return "/board/get"; // WEB-INF/views + /board/get + .jsp
 	}
 	*/
+	/*
 	@GetMapping(value = { "/get" , "/modify" })
-	public void get(Model model, @RequestParam("bno") Long bno ) {
+	public void get(Model model, @RequestParam("bno") Long bno, Criteria criteria ) {
 		log.info("> BoardController.get()...");
 		model.addAttribute("boardVO", this.boardService.get(bno) );	
+		model.addAttribute("criteria", criteria);
+	}
+	*/
+	@GetMapping(value = { "/get" , "/modify" })
+	public void get(Model model, @RequestParam("bno") Long bno
+			, @ModelAttribute("criteria") Criteria criteria ) {
+		log.info("> BoardController.get()...");
+		model.addAttribute("boardVO", this.boardService.get(bno) );			
 	}
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO boardVO, RedirectAttributes rttr ) {
+	public String modify(BoardVO boardVO, RedirectAttributes rttr 
+			, @ModelAttribute("criteria") Criteria criteria) {
 		log.info("> BoardController.modify() POST...");
 		if( this.boardService.modify(boardVO)) {
 			rttr.addFlashAttribute("result", "success") ;
 		}// if   
 		
-		//return "redirect:/board/list";
-		return String.format("redirect:/board/get?bno=%d", boardVO.getBno());
+		rttr.addFlashAttribute("pageNum", criteria.getPageNum() ) ;
+		rttr.addFlashAttribute("amount", criteria.getAmount() ) ;
+		
+		return "redirect:/board/list";
+		//return "redirect:/board/list?pageNum="+criteria.getPageNum()";
+		//return String.format("redirect:/board/get?bno=%d", boardVO.getBno());
 	}
 	
 	@GetMapping(value = { "/remove" })
@@ -91,5 +122,9 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 
+	
+	
 
 }// class
+
+//RedirectAttributes : 일회성으로 가져갈 파라미터값

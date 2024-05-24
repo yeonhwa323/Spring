@@ -1,0 +1,30 @@
+--24.05.24
+1. 	SL00_DefaultSettings 복사
+ 	SL03_DI 생성
+2. 	기본 설정 후 실행해서 확인
+
+[	SL03_DI-Spring DI	]
+
+org.doit.ik.di 패키지
+	ㄴ Record.java 인터페이스 추가
+	ㄴ RecordImpl.java 클래스 추가
+	ㄴ RecordView.java 인터페이스 추가
+	ㄴ RecordViewImpl.java 클래스 추가
+
+org.doit.ik.di.test 패키지
+	ㄴ Ex01.java 파일 추가 + main()
+
+org.doit.ik.di2 패키지 추가
+ - application-context.xml (-> gxac ctx)
+	설정파일 대신에 자바코딩.
+ - Config.java 클래스 파일 추가
+
+org.doit.ik.di2.test 패키지 추가
+ - Ex03.java
+
+org.doit.ik.di3 패키지 추가
+org.doit.ik.di3.test 패키지 추가
+
+-- 컴포넌트 스캔을 이용한 빈 자동 등록 (p115)
+org.doit.ik.di4 패키지 추가
+org.doit.ik.di4.test 패키지 추가

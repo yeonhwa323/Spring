@@ -35,5 +35,24 @@ from tbl_board
 where bno > 0
 --order by bno desc;
 
+BEGIN
+    FOR i IN 1 .. 158
+    LOOP 
+      INSERT INTO tbl_board (bno, title, content, writer)
+      VALUES ( seq_board.nextval ,  'PL SQL-' || i, 'PL SQL-' || i, 'È«±æµ¿' ) ;
+    END LOOP;  
+END;
+COMMIT;
 
+BEGIN
+    FOR i IN 1 .. 158
+    LOOP 
+      IF MOD(i,5)=0 OR MOD(i, 17)=0 THEN
+        UPDATE tbl_board
+        SET title = 'ÀÚ¹Ù-' || i        
+        WHERE bno = i;
+      END IF; 
+    END LOOP;  
+END;
+COMMIT;
 

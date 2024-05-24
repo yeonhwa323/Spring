@@ -46,8 +46,7 @@ span.material-symbols-outlined {
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea name="content" class="full" ><c:out
-									value="${ boardVO.content }"></c:out></textarea></td>
+						<td><textarea name="content" class="full" ><c:out value="${ boardVO.content }"></c:out></textarea></td>
 					</tr>
 					<tr>
 						<th>작성자</th>

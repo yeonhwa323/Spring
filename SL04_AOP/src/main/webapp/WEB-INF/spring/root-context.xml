@@ -12,7 +12,7 @@
    
    <!-- p84 -->
    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig"> <!-- db 연동 모듈 설정코딩? spring di? 빈 객체 생성 -->
-     <!--    p102
+     <!-- p102
      <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
      <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
       -->      

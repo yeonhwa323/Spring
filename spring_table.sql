@@ -1,3 +1,42 @@
+--240527
+SELECT d.deptno, dname, empno, ename, job, hiredate, sal, grade
+FROM emp e JOIN dept d ON d.deptno = e.deptno
+           JOIN salgrade s ON sal BETWEEN losal AND hisal
+ORDER BY d.deptno ASC
+;
+-- SL06_NLMVC
+5. 테이블 생성
+   --           공지사항(게시판)
+   CREATE TABLE NOTICES
+   (
+      "SEQ" VARCHAR2(10 BYTE),  -- 글번호
+      "TITLE" VARCHAR2(200 BYTE), -- 제목
+      "WRITER" VARCHAR2(50 BYTE), -- 작성자
+      "CONTENT" VARCHAR2(4000 BYTE), -- 내용
+      "REGDATE" TIMESTAMP (6),  -- 작성일
+      "HIT" NUMBER,  -- 조회수
+      "FILESRC" VARCHAR2(500 BYTE) -- 첨부파일
+   );
+   -- Table NOTICES이(가) 생성되었습니다.
+   
+   --            회원
+   DROP TABLE "MEMBER"
+   CREATE TABLE "MEMBER"
+   (   
+       "ID" VARCHAR2(50 BYTE),  -- UID -> ID 수정
+       "PWD" VARCHAR2(50 BYTE), 
+       "NAME" VARCHAR2(50 BYTE), 
+       "GENDER" VARCHAR2(10 BYTE), 
+       "BIRTH" VARCHAR2(10 BYTE), 
+       "IS_LUNAR" VARCHAR2(10 BYTE), 
+       "CPHONE" VARCHAR2(15 BYTE), 
+       "EMAIL" VARCHAR2(200 BYTE), 
+       "HABIT" VARCHAR2(200 BYTE), 
+       "REGDATE" DATE
+   );
+   -- Table "MEMBER"이(가) 생성되었습니다.
+
+
 --240522
 select * from dept;
 

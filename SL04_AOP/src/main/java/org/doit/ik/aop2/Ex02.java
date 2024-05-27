@@ -19,7 +19,8 @@ public class Ex02 {
 		GenericXmlApplicationContext ctx = 
 				new GenericXmlApplicationContext("classpath:org/doit/ik/aop2/application-context2.xml");
 		
-		Calculator calc =  ctx.getBean("calcProxy", Calculator.class);
+		Calculator calc =  ctx.getBean("calcProxy", Calculator.class); // 보조기능 장착+메서드 실행
+		//Calculator calc =  ctx.getBean("calc", Calculator.class);		// 메서드만 실행
 		System.out.println( calc.add(3, 5));
 		
 		System.out.println(" end ");

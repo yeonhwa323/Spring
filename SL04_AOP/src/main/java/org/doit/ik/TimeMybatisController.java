@@ -23,7 +23,7 @@ public class TimeMybatisController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(TimeMybatisController.class);
 	
-	@Autowired
+	@Autowired(required = false) // ""쓰지말기!!
 	private TimeMapper timeMapper;
 	
 	//@RequestMapping(value = "/time", method = RequestMethod.GET)

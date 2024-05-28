@@ -1,3 +1,7 @@
+--240528
+select * from notices;
+
+commit;
 --240527
 SELECT d.deptno, dname, empno, ename, job, hiredate, sal, grade
 FROM emp e JOIN dept d ON d.deptno = e.deptno

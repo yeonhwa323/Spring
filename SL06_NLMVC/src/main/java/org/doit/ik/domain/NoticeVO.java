@@ -15,6 +15,8 @@ public class NoticeVO {
 	private String title;
 	private String writer;
 	private Date regdate;
+	private int hit;
+	private String content; 
 	private String filesrc; // 수정
 	
 }

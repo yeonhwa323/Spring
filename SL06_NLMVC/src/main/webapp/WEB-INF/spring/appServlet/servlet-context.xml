@@ -16,10 +16,12 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!--  
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	 -->
 	
 	<context:component-scan base-package="org.doit.ik" />	
 	
@@ -32,9 +34,23 @@
       </beans:property>
     </beans:bean>
     
-     <beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    <!-- 
+     <beans:bean id="tiles[ViewResolver]" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
       <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
       <beans:property name="order" value="1" />
+    </beans:bean>
+     -->
+     
+    <beans:bean name="noticeDao" class="org.doit.ik.persistence.NoticeDao" ></beans:bean>
+    <!-- name 속성에 요청URL을 설정하면 매핑이 된다. -->
+    <beans:bean name="/customer/notice.htm" class="org.doit.ik.controller.NoticeController" >
+     <beans:constructor-arg ref="noticeDao" >
+      <!-- <beans:ref bean="noticeDao" /> ref부여 2가지방법 중 하나 선택 -->
+     </beans:constructor-arg>
+    </beans:bean>
+    
+    <beans:bean name="/customer/noticeDetail.htm" class="org.doit.ik.controller.NoticeDetailController" >
+     <beans:property name="noticeDao" ref="noticeDao"></beans:property>
     </beans:bean>
 	
 </beans:beans>

@@ -1,9 +1,9 @@
 --24.05.27
 
-1. org.doit.ik.domain 패키지 추가
-2. org.doit.ik.controller 패키지 추가
-3. org.doit.ik.persistence 패키지 추가
-4. org.doit.ik.service 패키지 추가
+1. org.doit.ik.domain 패키지 추가 - VO, DTO
+2. org.doit.ik.controller 패키지 추가  - controller
+3. org.doit.ik.persistence 패키지 추가 - DAO, Mapper
+4. org.doit.ik.service 패키지 추가 - Service
 
 -- SL06_NLMVC
 5. 테이블 생성
@@ -36,3 +36,47 @@
        "REGDATE" DATE
    );
    -- Table "MEMBER"이(가) 생성되었습니다.
+   
+  6. NoticeVO.java
+     MemberVO.java
+     -------------
+     NoticeDao.java
+     MemberDao.java
+     
+     모두 수정.
+     
+  7. WebContent 폴더 -> src/main/webapp 폴더 이동.
+  		ㄴ css 폴더
+  		   customer.css 공지사항 css 파일
+  		   joinus.css   멤버     css 파일
+  		ㄴ customer 폴더 - 공지사항 css, jsp 파일
+		   notice.jsp 목록
+		   noticeDetail.jsp 보기  
+		   noticeEdit.jsp  수정 
+		   noticeReg.jsp   추가  
+		ㄴ joinus 폴더 - 멤버(회원)
+		   join.jsp 회원가입
+		   login.jsp 로그인페이지   
+		   
+		   
+  8. web.xml -> 34번째줄 <url-pattern>*.htm</url-pattern> 변경
+     url-pattern   *.htm  사용
+     
+  9. 스프링 MVC 패턴 구현!!
+  	 1) 공지사항 목록보기 Spring 3.X~
+  	 	컨트롤러 클래스 사용.
+  	 	JSP 수업 : CommandHandler 인터페이스 == Controller
+  	 				String	process();
+  	 			   ListHandler implement CommandHandler {
+  	 			     @Override
+  	 			     String process() { == handleRequest
+  	 			      // 구현
+  	 			     }
+  	 			   }
+  	 	컨트롤러 메서드
+  	 	
+  	 2) 공지사항 상세보기
+  	 NoticeDetailController.java
+     
+     
+   

@@ -1,0 +1,33 @@
+--24.05.29
+
+1. webapp 폴더
+	ㄴ cmr 폴더
+		ㄴ upload 파일 추가 	요청URL 사용.
+
+2. org.doit.ik 패키지
+	ㄴ HomeController.java 복사+붙이기
+	ㄴ CmrUploadController.java  컨트롤러 생성
+	
+3.	servlet-context.xml 
+	2) multipartResolver 빈 등록
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <beans:property name="maxUploadSize" value="-1"></beans:property> 
+      <beans:property name="maxInMemorySize" value="10240"></beans:property>
+      <beans:property name="defaultEncoding" value="ISO-8859-1"></beans:property>
+    </beans:bean>
+	
+	1) pox.xml  모듈 확인
+	  <dependency>
+          <groupId>commons-fileupload</groupId>
+          <artifactId>commons-fileupload</artifactId>
+          <version>1.3</version>
+      </dependency>
+      
+      <!-- 4. spring io -->
+      <dependency>
+         <groupId>commons-io</groupId>
+         <artifactId>commons-io</artifactId>
+         <version>1.4</version>
+      </dependency>
+      
+4. CmrUploadController 컨트롤러 메서드 추가

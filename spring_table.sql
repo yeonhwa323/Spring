@@ -1,6 +1,36 @@
+--240530
+select * from notices where title LIKE '%TEST%';
+
+select point 
+from member 
+where id = 'yeon';
+
+update member
+set point = 1
+where id = 'yeon';
+
+DELETE FROM NOTICES WHERE SEQ = 15;
+
+commit;
+
+   -- 포인트 칼럼 추가
+   ALTER TABLE member
+   ADD (  point number(10) default(0) );
+   --  title  유일성 제약조건 설정.
+   ALTER TABLE notices
+   ADD CONSTRAINT ck_notices_title UNIQUE(title);
+   -- point 컬럼값은 3 이상 X 제약 조건 ( 트  확인 )
+   ALTER TABLE member
+   ADD CONSTRAINT ck_notices_point  CHECK ( point < 3 );
+   
+   ALTER TABLE member
+DROP CONSTRAINT ck_notices_point;
+
+ALTER TABLE notices
+DROP CONSTRAINT ck_notices_title;
+
 --240528
 select * from notices;
-
 commit;
 --240527
 SELECT d.deptno, dname, empno, ename, job, hiredate, sal, grade

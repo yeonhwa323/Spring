@@ -1,0 +1,67 @@
+--240531
+
+[ SL12_REST ]
+
+1. REST(Representational State Transfer)는 월드 와이드 웹과 같은 
+	분산 하이퍼미디어 시스템을 위한 소프트웨어 아키텍처의 한 형식이다. 
+	REST는 네트워크 아키텍처 원리의 모음이다. 
+	여기서 '네트워크 아키텍처 원리'란 자원을 정의하고 자원에 대한 주소를 지정하는 방법 전반을 일컫는다. 
+
+2. URL/URI
+	REST = URI + GET/POST/PUT/DELETE...
+	URI : http://localhost/board/10 + GET		10번 게시글 얻어오라....
+	URI : http://localhost/board/10 + DELETE	10번 게시글 삭제해라....
+	
+3. RESTFUL : JSON/XML 형식으로 전송/수신	
+4. 어노테이션(기본)
+	@RestController 컨트롤러 + REST 방식(G/P/P/D..+요청URI) + JSON/XML
+	@ResponseBody	뷰(jsp) 응답 X -> 순수 데이터 자체를 전달
+	@PathVariable	http://localhost/board/10 -> ${seq}값 받아서 수행
+	@RequestBody    json 객체->자바 객체
+	
+5. 처리 과정....
+클라이언트										  서버
+ [버튼]
+ click
+ 
+ JS
+ ajax                   			--요청-->  @RestController
+ 	파라미터 js Object
+ 			 [json 형식문자열]로 변환		 EmpVO  컨트롤러메서드(@RequestBody DeptVO vo)
+ 			 								   return new EmpVO();  // json, xml 형식 문자열
+ 			 								   
+6. pom.xml
+
+  JSON 형식으로 변환시켜 클라이언트에 전송할 때 사용하는 모듈 
+  <dependency>
+     <groupId>com.fasterxml.jackson.core</groupId>
+     <artifactId>jackson-databind</artifactId>
+     <version>2.9.5</version>
+  </dependency>
+
+  XML 형식으로 변환시켜 클라이언트에 전송할 때 사용하는 모듈 
+  <dependency>
+     <groupId>com.fasterxml.jackson.dataformat</groupId>
+     <artifactId>jackson-dataformat-xml</artifactId>
+     <version>2.9.5</version>
+  </dependency>
+  
+  <!-- 직접 Java 인스턴스를 JSON 타입의 문자열로 변환하는 라이브러리 -->
+  <dependency>
+     <groupId>com.google.code.gson</groupId>
+     <artifactId>gson</artifactId>
+     <version>2.8.2</version>
+  </dependency>
+  
+  <dependency>
+     <groupId>com.fasterxml.jackson.datatype</groupId>
+     <artifactId>jackson-datatype-jsr310</artifactId>
+     <version>2.9.5</version>
+  </dependency>
+  
+7. 
+  
+  
+  
+  
+  

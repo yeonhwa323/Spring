@@ -8,36 +8,36 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="첨부"/>
+		<item key="selection" value="notice"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Notice"/>
+			<item value="상담"/>
+			<item value="1:1"/>
+			<item value="상담 내역"/>
+			<item value="상담내역"/>
+			<item value="문의내역"/>
+			<item value="views"/>
+			<item value="jackson"/>
+			<item value="json"/>
+			<item value="-version&gt;"/>
+			<item value="sieun"/>
+			<item value="content"/>
+			<item value="sien"/>
+			<item value="si"/>
 			<item value="첨부"/>
-			<item value="첨부파일"/>
-			<item value="noticeEdit"/>
-			<item value="form"/>
-			<item value="config"/>
-			<item value="multipart"/>
-			<item value="file"/>
-			<item value="commons"/>
-			<item value="삭제"/>
-			<item value="저장하기"/>
-			<item value="token"/>
-			<item value="수정"/>
-			<item value="작성자"/>
-			<item value="csrf"/>
-			<item value="글쓰기"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="824"/>
-		<item key="DIALOG_Y_ORIGIN" value="264"/>
+		<item key="DIALOG_X_ORIGIN" value="1258"/>
+		<item key="DIALOG_Y_ORIGIN" value="423"/>
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

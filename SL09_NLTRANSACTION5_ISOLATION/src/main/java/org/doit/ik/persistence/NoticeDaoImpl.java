@@ -162,7 +162,7 @@ public class NoticeDaoImpl implements NoticeDao{
 	            + " WHERE id = :id "; 
 	      // B
 	      MapSqlParameterSource paramSource = new MapSqlParameterSource();
-	      paramSource.addValue("id", "sieun");      
+	      paramSource.addValue("id", "yeon");      
 	      int updateCount = npJdbcTemplate.update(sql2, paramSource);
 	      
 	      return updateCount;

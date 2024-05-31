@@ -101,10 +101,11 @@ public class CustomerController {
 	
 	// <a class="btn-edit button" href="noticeEdit.htm?seq=${ notice.seq }">수정</a>
 	@GetMapping("noticeEdit.htm")
-	public String noticeEdit(@RequestParam("seq") String seq, Model model) throws Exception{
+	public String noticeEdit(@RequestParam("seq") String seq
+			, Model model) throws Exception{
 		NoticeVO notice = this.noticeDao.getNotice(seq);
 		model.addAttribute("notice", notice);
-		return "noticeEdit.jsp";
+		return "customer.noticeEdit";
 	}
 	
 	private String getFileNameCheck(String uploadRealPath, String originalFilename) {
@@ -139,7 +140,7 @@ public class CustomerController {
 			
 			notice.setFilesrc(filesystemName);
 		}
-		notice.setWriter("sieun");
+		notice.setWriter("yeon");
 		int rowCount = this.noticeDao.insert(notice);
 		if (rowCount ==1) {  // 글쓰기 성공
 			return "redirect:notice.htm";  // 스프링 [리다이렉트] redirect: 접두사 사용 / 포워딩
@@ -149,7 +150,7 @@ public class CustomerController {
 		/*
 		int rowCount = 1;
 		try {
-			this.memberShipService.insertAndPointUpOfMember(notice, "sieun");
+			this.memberShipService.insertAndPointUpOfMember(notice, "yeon");
 			return "redirect:notice.htm"; 
 		} catch (Exception e) {
 			return "noticeReg.jsp?error";
@@ -169,7 +170,7 @@ public class CustomerController {
 	// <a class="btn-write button" href="noticeReg.htm">글쓰기</a>
 	@GetMapping(value = "/noticeReg.htm")
 	public String noticeReg(HttpSession session)throws Exception {
-		return "noticeReg.jsp";
+		return "customer.noticeReg";
 	}
 	
 	// 2.
@@ -186,7 +187,7 @@ public class CustomerController {
 		model.addAttribute("list", list);
 		model.addAttribute("message", "hello world!");
 	
-		return "notice.jsp";
+		return "customer.notice";
 	}
 	
 	
@@ -228,7 +229,7 @@ public class CustomerController {
 		this.noticeDao.hitUp(seq); // 조회수 증가
 		NoticeVO notice = this.noticeDao.getNotice(seq);
 		model.addAttribute("notice", notice);
-		return "noticeDetail.jsp";
+		return "customer.noticeDetail";
 	}
 	
 }

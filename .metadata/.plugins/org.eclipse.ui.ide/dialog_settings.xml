@@ -120,6 +120,7 @@
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
 			<item value="C:\E\Sist\Class\Workspace\SpringClass\SENTI"/>
+			<item value="C:\E\Sist\Class\Workspace\SpringClass\SL13_SECURITY3_USERDETIAILSSERVICE_22222"/>
 			<item value="C:\E\Sist\Class\Workspace\SpringClass\SL06_NLMVC2"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">

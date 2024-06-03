@@ -1,0 +1,163 @@
+index.htm\
+
+org.doit.ik.persistence
+
+	ㄴ NoticeDaoImpl.java 삭제 NoticeMapper.java
+	ㄴ MemberDaoImpl.java 삭제 MemberMapper.java
+	
+	
+	코딩 수정
+NoticeMapper.xml
+
+MemberMapper.xml 
+
+1.SECURITY (보안) = 인증(Authentication)  + 권한(인가)(Authorization)
+					익명(guest) 로그인   	 	 관리자, 일반회원
+					
+2. 인증, 권한 처리 = 쿠키 사용, [세션] 사용 
+
+3.서블릿 필터, 스프링 인터셉터 (Interceptor) = 인증처리
+	차이점 =  스프링 빈(빈을 만들어야한다면? )
+	
+4. 스프링 시큐리티 (보안=인증,권한 )
+	1) pom.xml   
+	 <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-web</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-config</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-core</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+      
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+      <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-taglibs</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+     
+     5. 체크 제약조건
+     
+     member 	point < 3 제거
+     
+     6. security-context.xml
+     
+     
+     7. web.xml 
+     
+     <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		/WEB-INF/spring/root-context.xml
+	    /WEB-INF/spring/security-context.xml 
+		</param-value>
+	</context-param>
+	
+	8. 추가
+	 <filter>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+   </filter>
+   <filter-mapping>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping> 
+   
+   9. 시큐리티가 필요한 url 설계 
+   ㄱ. 게시판 글 쓰기 - 인증(로그인) O
+   ㄴ. 작성자 == 로그인한 계정 (ID)
+   ㄷ. 게시판 수정/삭제 - 작성자 확인 , 관리자 권한 삭제는 가능.
+   ㄹ. 그 외의 요청들은 인증받지 않아도 모든 사용자가 사용 가능.
+   
+   10. (암기) 시큐리티 내부 구조 (개요)
+    (1) AuthenticationManager (인증관리자) - 가장 중요한 역할.
+     인증을 담당하는 존재, 인터페이스 , 인증을 다양한 방식으로 인증 처리를 할 수 있도록 설계(책임자)
+    (2) ProviderManager(제공관리자) - 인증 처리를 AuthenticationProvider 객체
+    	인증처리를 위임하는 역할 , 인터페이스  
+    (3) AuthenticationProvider(인증제공자) - 실제 인증 처리를 하는 역할(실무자) 
+    (4) UserDetailsService (사용자 상세서비스) - 인증된 실제 사용자의 정보+권한을 처리해서 반환하는 객체. 인터페이스 
+    
+    (3)+(4) 직접 구현할 수 있음.
+    
+    
+    11. 시큐리티 설계 -> 접근 제한 설정 코딩.
+    	security-context.xml
+      
+    12. 메모리인증 방식으로 인증 처리 .(테스트)
+    
+	<security:authentication-manager> 
+		 <!-- 인증제공자 -->
+		<security:authentication-provider>
+			<security:user-service>
+			<!-- 메모리상의 계정을 만ㄷ름 -->
+			<security:user name="hong" authorities="ROLE_USER" password="1234"/>
+			<security:user name="admin" authorities="ROLE_USER, ROLE_MANAGER , ROLE_ADMIN" password="1234"/>
+			
+			
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	13. header.jsp 
+		로그인 버튼
+     
+     스프링 시큐리티 5버전 부터는 반드시 passwordEncoder 라는 존재를 이용해서 인증처리하도록 되었다.
+     비밀번호 인코딩 지정.
+     임시방편으로 PassworldEncoder 사용 x = > 비밀번호 앞에
+     {noop}을 달면 됨.
+      
+     
+     14. 로그인하다가 403 접근 금지 에러가 발생했을 때의 처리
+     
+     1) 특정 URL로 이동
+     CommonController.java 추가
+     
+     2) AccessDeniedHandler 직접 구현해서 접근 제한 처리 (권장)
+       <!--  2) 접근 금지 발생시 직접 구현 -->
+	  <security:access-denied-handler ref=""/>
+	  
+	  org.doit.ik.security 패키지 
+	  	ㄴ CustomAccessDeniedHandler.java 추가 
+	  	
+	  implements AccessDeniedHandler 붙여서 자동으로 붙임.
+	  
+	  반환을 response.sendRedirect로 전달함.
+	  
+	  
+     15. 커스텀 로그인 페이지 사용.
+     
+      <security:form-login login-page="/joinus/login.htm" />
+      
+      반드시 GET 방식 요청이어야함.
+      
+       <form action="/login" method="post"> action값이 /login 이어야함.
+       
+        <li><label for="uid">아이디</label><input name="username" id="id"
+                  class="text" /></li>
+               <li><label for="pwd">비밀번호</label><input type="password"
+                  name="password" class="text" /></li>
+                  
+                   name 속성을 지켜야함.
+                   
+                   <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%> pom.xml 에 모듈 주입 해야함.
+                   
+                     <form action="${  pageContext.request.contextPath   }/joinus/logout.htm" method="post">                     
+                       [<sec:authentication property="principal.username"/>] 님
+                       <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+                       <button>로그아웃</button>
+          </form> 
+          
+          principal 로그인한 정보를 가지고 있음.
+          username은 아이디값
+      
+     

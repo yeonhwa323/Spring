@@ -1,0 +1,36 @@
+org.doit.ik.domain 패키지 추가
+org.doit.ik.controller 패키지 추가
+org.doit.ik.persistence 패키지 추가
+org.doit.ik.service 패키지 추가\
+
+
+7. WebContent 폴더 -> src/main/webapp 폴더 이동
+	ㄴ css 폴더
+		customer.css 공지사항 css 파일
+		joinus.css 멤버 css 파일
+	ㄴ 	customer 폴더 - 공지사항 css, jsp 파일
+		 notice.jsp 목록 
+		 noticeDetail.jsp 보기 
+		 noticeEdit.jsp 수정
+		 noticeReg.jsp 등록
+		 
+	ㄴ joinus 폴더 - 멤버(회원) 
+	
+	   join.jsp 회원가입
+	   login.jsp 로그인페이지
+	   
+	 
+	8. web.xml
+		url-pattern  *.htm
+		
+9. 스프링 MVC 패턴 구현 
+	1) 공지사항 목록 Spring 3.x
+	 컨트롤러 클래스 사용.
+	 JSP 수업 : commandHandler 인터페이스 == Controller 
+	 	String process();
+	 	ListHandler implement
+	 	컨트롤러 메서드
+		  
+		  
+		 
+	

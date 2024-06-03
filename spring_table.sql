@@ -1,5 +1,70 @@
+--240603
+
+SELECT * FROM INQUIRY;
+
+SELECT * FROM BUY_INQUIRY;
+
+SELECT * FROM ETC_INQUIRY;
+
+SELECT * FROM GENERAL_INQUIRY;
+
+SELECT * FROM member;
+--
+
+SELECT id, pwd, name, enabled, regdate, authority 
+FROM  member  m LEFT JOIN member_authorities auth ON m.id = auth.username
+WHERE m.id = 'admin';
+
+
+INSERT INTO member_authorities VALUES ( 'admin' , 'ROLE_MANAGER' );
+INSERT INTO member_authorities VALUES ( 'admin' , 'ROLE_ADMIN' );
+INSERT INTO member_authorities VALUES ( 'admin' , 'ROLE_USER' );
+
+INSERT INTO member_authorities VALUES ( 'yeon' , 'ROLE_MANAGER' );
+INSERT INTO member_authorities VALUES ( 'yeon' , 'ROLE_USER' );
+
+INSERT INTO member_authorities VALUES ( 'hong' , 'ROLE_USER' );
+COMMIT;
+-------
+  CREATE TABLE member_authorities(
+   username     varchar2(50) not null      
+  , authority    varchar2(50) not null 
+  , constraint fk_member_authorities_username 
+               FOREIGN KEY(username) 
+               REFERENCES member(id)
+  );
+
+select * from member_authorities;
+desc member;
+member 테이블의 pwd 컬럼의 varchar(50) -> varchar(100) 변경
+
+ALTER TABLE MEMBER MODIFY PWD VARCHAR2(100) ;
+-----------
+select * 
+from member;
+
+delete from member;
+commit;
+
+id == username
+pwd == password
+enabled
+
+ALTER TABLE member
+ADD ( enabled char(1) default '1');
+
+ALTER TABLE MEMBER
+ADD CONSTRAINT pk_member_id PRIMARY KEY(id);
+-------------------
+SELECT *
+FROM  user_constaints
+where table_name = 'MEMBER';
+--삭제
+ALTER TABLE MEMBER
+DROP CONSTRAINT ck_notices_point;
+
 --240530
-select * from notices where title LIKE '%TEST%';
+select * from MEMBER ; notices where title LIKE '%TEST%';
 
 select point 
 from member 
@@ -39,6 +104,7 @@ FROM emp e JOIN dept d ON d.deptno = e.deptno
 ORDER BY d.deptno ASC
 ;
 -- SL06_NLMVC
+
 5. 테이블 생성
    --           공지사항(게시판)
    CREATE TABLE NOTICES

@@ -1,0 +1,167 @@
+[ notice.htm ]
+Ctrl + F11
+
+1. SECURITY( 보안 ) = 인증(Authentication) + 권한(인가)(Authorization)
+					  익명(guest) 로그인	 관리자, 일반회원
+2. 인증, 권한 처리 = 쿠키, [세션]
+
+3. jsp 서블릿 필터, 스프링 인터셉터(Interceptor) => 인증처리 가능
+   차이점 = 스프링 빈 -> 스프링 인터셉터는 사용가능
+   					  -> 서블릿 필터는 불가능
+
+4. 스프링 시큐리티(보안=인증,권한처리) 
+   1) pom.xml - 4개의 시큐리티 등록되어있음
+   <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-web</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-config</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-core</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+      <dependency>
+         <groupId>org.springframework.security</groupId>
+         <artifactId>spring-security-taglibs</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+      
+5. 체크제약조건 삭제
+   MEMBER  point < 3 
+SELECT *
+FROM  user_constaints
+where table_name = 'MEMBER';
+--삭제
+ALTER TABLE MEMBER
+DROP CONSTRAINT ck_notices_point;
+
+6. WEB-INF > security-context.xml 파일
+	<security:http pattern="/static/**" security="none"></security:http>	
+	<security:http pattern="/design/**" security="none"></security:http>
+	<!-- 글쓰기 403 에러 -->	
+	<!-- <security:http pattern="/customer/**" security="none"></security:http> -->
+	
+	<security:http>    
+	   <security:form-login/>  
+	</security:http>	
+	
+	<security:authentication-manager> 
+	</security:authentication-manager>
+7. web.xml 동작 명령어
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		   /WEB-INF/spring/root-context.xml
+		   /WEB-INF/spring/security-context.xml
+		</param-value>
+	</context-param>
+
+8. web.xml
+ <filter>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+   </filter>
+   <filter-mapping>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+    
+9. 시큐리티가 필요한 URL 설계
+  ㄱ. 게시판 글 쓰기 - 인증(로그인) O
+ 	  작성자 == 로그인한 계정 (ID)
+  ㄴ. 게시판 수정/삭제 - 작성자 확인, 관리자 권한 삭제는 가능.
+  ㄷ. 그 외의 요청들은 인증받지 않아도 모든 사용자가 사용 가능.
+    
+10. (암기) 시큐리티 내부 구조(개요)
+
+(1) AuthenticationManager(인증관리자)
+	- 가장 중요한 역할.
+	  인증을 담당하는 존재
+	  인터페이스
+	  인증을 다양한 방식으로 인증처리할 수 있도록 설계되어있다.
+	  (총괄 책임자)
+	  
+(2) ProviderManager(제공관리자)
+	- 인증 처리를 AuthenticationProvoider 객체를 이용해 인증처리를 위임하는 역할
+	  인터페이스
+	
+(3) AuthenticationProvoider(인증제공자)
+	- 실제 인증 처리를 하는 역할(실무자)
+	
+(4) UserDetailsService(사용자상세서비스)
+	- 인증된 실제 사용자의 정보+권한정보를 처리하여 반환하는 객체
+      인터페이스
+      
+      (3) + (4) 직접 구현할 수도 있다.
+      
+11. 시큐리티 설계작업 -> 접근 제한 설정 코딩.
+	security-context.xml
+	
+12. 메모리 인증 방식으로 인증 처리. (테스트)
+	<!-- 인증관리자 : 총괄책임자 -->
+	<security:authentication-manager>
+		<!-- 인증제공자 : 실무자 -->
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="hong" authorities="ROLE_USER" password="1234" />
+				<security:user name="admin" authorities="ROLE_USER, ROLE_MANAGER, ROLE_ADMIN" password="1234" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+13. header.jsp 
+	로그인 버튼
+	<li><a href="${ pageContext.request.contextPath }/login">로그인</a></li>
+	http://localhost/login
+	
+	<!-- 오류 발생 -->
+	java.lang.IllegalArgumentException: There is no PasswordEncoder mapped for the id "null"
+	
+	스프링 시큐리티 5버전부터는 반드시 PasswordEncoder 라는 존재를
+	이용해서 인증처리하도록 되었다.
+	비밀번호 인코딩 지정.
+	PasswordEncoder 를 이용해 비밀번호를 저장해야 사용가능하다.
+	임시방편으로 PasswordEncoder X -> {noop}삽입
+	
+14. 403 (접근금지) 에러가 발생할 경우 처리방법
+   1) 접근 금지 발생시 특정 URL로 이동하도록 처리 : error-page 설정.
+   	- <security:access-denied-handler error-page="/common/accessError.htm" />
+    - CommonController.java 추가
+    
+   2) AccessDeniedHandler 직접 구현해서 접근 제한 처리(권장)
+    - security-context.xml 
+      <security:access-denied-handler ref="" /> 삽입
+      
+      org.doit.ik.security.CustomAccessDeniedHandler.java 구현
+      
+15. 커스텀 로그인 페이지를 사용
+	- security-context.xml 에 코딩 추가
+	<!-- 커스텀 로그인 페이지 연동 -->
+		<security:form-login
+		  login-page="/joinus/login.htm"
+		/>
+	반드시 GET 방식 요청이어야 한다.
+   
+ 	login.jsp
+ 	<form action="/login" method="post"> 무조건 action은 login / post 방식이어야함
+ 	
+ 	- CustomLoginSuccessHandler.java 추가
+ 	
+ 	
+ 	
+ 	
+
+    
+    
+    

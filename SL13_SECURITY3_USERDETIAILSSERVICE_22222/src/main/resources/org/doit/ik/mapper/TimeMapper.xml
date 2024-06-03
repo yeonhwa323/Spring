@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.doit.ik.mapper.TimeMapper">
+  <select id="getTime" resultType="String">
+    select to_char(sysdate , 'yyyy"년" MM"월" dd"일" hh"시" mm"분" ss"초"') from dual
+  </select>
+</mapper>

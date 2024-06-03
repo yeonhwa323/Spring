@@ -31,13 +31,11 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.doit.ik.domain.EmpDTO"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="org.doit.senti.domain.board.MemberVO"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
     <fullyQualifiedTypeName name="org.doit.senti.persistence.board.InquiryDao"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-    <fullyQualifiedTypeName name="org.doit.senti.domain.board.InquiryVO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.access.AccessDeniedHandler"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.doit.ik.mapper.MemberMapper"/>
     <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="org.doit.senti.domain.board.MemberVO"/>
+    <fullyQualifiedTypeName name="org.doit.senti.domain.board.InquiryVO"/>
 </qualifiedTypeNameHistroy>

@@ -2,70 +2,54 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.InquiryMapper">
 
-<mapper namespace="org.doit.ik.mapper.NoticeMapper">
-
-	<!-- public int getCount(String field, String query) throws ClassNotFoundException, 
-		SQLException; -->
+	<!-- // 문의내역 갯수 반환하는 메서드
+	public int getCount(String field, String query) throws ClassNotFoundException, SQLException; -->
 	<select id="getCount" resultType="Integer">
 		SELECT COUNT(*) CNT
 		FROM inquiry
 		WHERE ${param1} LIKE '%${param2}%'
 	</select>
-	<!-- public List<NoticeVO> getNotices( int page // 현재 페이지 번호 , String field 
-		// 검색조건 , String query // 검색어 ) throws ClassNotFoundException, SQLException; -->
-	<select id="getInquiry" resultType="InquiryVO">
-
+	
+	<!-- // 문의내역 리스트
+	public List<InquiryVO> getInquirys ( int page // 현재 페이지 번호, String field // 검색조건 , String query // 검색어 
+	) throws ClassNotFoundException, SQLException; -->
+	<select id="getInquirys" resultType="InquiryVO">
 		SELECT *
 		FROM (
-		SELECT ROWNUM NUM, N.*
-		FROM (
-		SELECT *
-		FROM inquiry
-		WHERE ${param2} LIKE '%${param3}%'
-		ORDER BY inquiry_id DESC
-		) N
-		)
+			SELECT ROWNUM NUM, N.*
+			FROM (
+				SELECT *
+				FROM inquiry
+				WHERE ${param2} LIKE '%${param3}%'
+				ORDER BY inquiry_date DESC
+				) N
+			)
 		WHERE NUM BETWEEN (1 + (#{param1}-1)*15) AND (15 + (#{param1}-1)*15)
 	</select>
-
-	<!-- public int delete(String seq) throws ClassNotFoundException, SQLException; -->
+	
+	<!-- // 문의내역 삭제하는 메서드
+	public int delete(String inquiryId) throws ClassNotFoundException, SQLException; -->	
 	<delete id="delete">
-		DELETE FROM inquiry
+		DELETE inquiry
 		WHERE inquiry_id= #{inquiryId}
 	</delete>
-
-	<!-- public int update(NoticeVO notice) throws ClassNotFoundException, SQLException; -->
-	<update id="update">
-		UPDATE inquiry
-		SET TITLE=#{inquiryTitle}, CONTENT=#{inquiryContent}
-		<if test="filesrc != null">
-			, FILESRC=#{ filesrc }
-		</if>
-		WHERE inquiry_id= #{inquiryId}
-	</update>
-
-	<!-- public NoticeVO getNotice(String seq) throws ClassNotFoundException, 
-		SQLException; -->
-	<select id="getNotice" resultType="org.doit.ik.domain.NoticeVO">
-		SELECT *
-		FROM inquiry
-		WHERE WHERE inquiry_id= #{inquiryId}
-	</select>
-
-	<!-- public int insert(NoticeVO notice) throws ClassNotFoundException, SQLException ; -->
-	<insert id="insert">
-		<selectKey order="BEFORE" resultType="int"
-			keyProperty="inquiryId">
-			SELECT NVL(MAX(TO_NUMBER(inquiry_id)),0)+1 
-			FROM inquiry
-		</selectKey>
-		INSERT INTO inquiry
-		( inquiry_id, inquiry_title, inquiry_content, inquiry_date, buy_inquiry, etc_inquiry, general_inquiryId, member_id, filesrc)
-		VALUES
-		( #{ inquiryId } , #{ inquiryTitle } , #{ inquiryContent }, SYSDATE, #{ buyInquiry }, #{ etcInquiry }, 
-		#{ generalInquiryId }, #{ memberId }, #{filesrc, javaType=String, jdbcType=VARCHAR} )
-	</insert>
-
-
+		
+  <insert id="insert" parameterType="org.doit.senti.domain.board.InquiryVO">
+  	INSERT INTO inquiry
+	(inquiry_id, inquiry_title, inquiry_content,inquiry_date, filesrc, buy_inquiry, general_inquiry_id, etc_inquiry, member_id) 
+	VALUES( (SELECT NVL(MAX(TO_NUMBER(inquiryId)),0)+1 FROM inquiry), #{inquiryTitle}, #{inquiryContent}, SYSDATE, #{filesrc}, #{buyInquiry}, #{generalInquiryId}, #{etcInquiry}, #{memberId} )
+  </insert>
+  
+  
+  <select id="getInquiry" resultType="org.doit.senti.domain.board.InquiryVO">
+	    SELECT COUNT(*)
+	    FROM inquiry
+	    WHERE member_id = #{member_id}
+ 	</select>
+  
+  
 </mapper>
+ 

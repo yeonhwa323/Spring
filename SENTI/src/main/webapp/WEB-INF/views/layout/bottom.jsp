@@ -399,7 +399,7 @@
                         <path d="M1 0l40 40.083L1.166 80" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="5" ></path>
                     </svg>
                 </a>
-                <a class="css-bs7ejj ettxrej2" style="color: white" href="#">1:1 문의 
+                <a class="css-bs7ejj ettxrej2" style="color: white" href="">1:1 문의 
                     <svg class="ettxrej3 css-1tfgiui e15lsifv0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 80">
                         <path d="M1 0l40 40.083L1.166 80" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="5"></path>
                     </svg>
@@ -445,7 +445,7 @@
             </li>
             <li class="css-1utwm2c e1t68iwn0">
                 <h2 class="css-xsdkei e1t68iwn1">HELP</h2>
-                <a class="css-1lznoou e1t68iwn2" style="color: black" href="inquiry_list.do">1:1 상담내역</a>
+                <a class="css-1lznoou e1t68iwn2" style="color: black" href="inquiry/inquiry.do">1:1 문의내역</a>
                 <a class="css-1lznoou e1t68iwn2" style="color: black" href="#">마케팅 제휴, 입점, 대량 주문 문의</a>
                 <a class="css-1lznoou e1t68iwn2" style="color: black" href="#">상품 Q&amp;A내역</a>
                 <a class="css-1lznoou e1t68iwn2" style="color: black" href="#">공지사항</a>

@@ -1,51 +1,71 @@
 package org.doit.senti.controller.board;
 
-import java.io.File;
-import java.util.List;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 import org.doit.senti.domain.board.InquiryVO;
-import org.doit.senti.mapper.board.InquiryMapper;
-import org.doit.senti.service.board.MemberShipService;
+import org.doit.senti.mapper.InquiryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@RequestMapping("/inquiry/*")
 @Log4j
+@AllArgsConstructor
+@RequestMapping("/inquiry")
 public class InquiryController {
 
 	@Autowired
-	private InquiryMapper InquiryDao;
+	private InquiryMapper inquiryMapper;
 	
-	@Autowired
-	private MemberShipService memberShipService;
+	@GetMapping("/inquiry.do")
+	public String inquiryPage(Model model) {
+		log.info("> InquiryController.inquiryPage() GET...");
+		return "inquiry/inquiry.jsp";
+	}
 	
+	@GetMapping("/inquiryReg.do")
+	public String inquiryReg(Model model) {
+		log.info("> InquiryController.inquiryReg() GET...");
+		return "inquiry/inquiryReg.jsp";
+	}
+	
+	@PostMapping("/inquiryReg.do")
+	public String insert(InquiryVO inquiry) {
+		log.info("> InquiryController.Insert() Post...");
+		try {
+			this.inquiryMapper.insert(inquiry);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "redirect:../WEB-INF/views/inquiry/inquiry.jsp";
+	}
+	
+	/*
 	// <a class="btn-del button" href="noticeDel.htm?seq=${notice.seq}&filesrc=${ notice.filesrc }">삭제</a>
 	@GetMapping("/inquiryDel.do")
 	public String noticeDel(
-			@RequestParam("inquiryId") int inquiryId
+			@RequestParam("inquiryId") String inquiryId
 		  , @RequestParam("filesrc") String filesrc
 		  , HttpServletRequest request
 		  ) throws Exception{
 		// 1. 첨부파일이 있는 공지사항일 경우 첨부파일도 삭제
-		String uploadRealPath = request.getServletContext().getRealPath("/inquiry/upload");
+		String uploadRealPath = request.getServletContext().getRealPath("inquiry/upload");
 		File delFile = new File(uploadRealPath, filesrc);
 		if (delFile.exists()) {
 			delFile.delete();
 		}
 		// 2. 공지사항 글도 삭제
-		int rowCount = this.InquiryDao.delete(inquiryId);
+		int rowCount = this.inquiryDao.delete(inquiryId);
 		if (rowCount ==1) {  // 글삭제 성공
 			// redirect 접두어 == response.sendRedirect()
 			return "redirect:inquiry.do";
@@ -55,7 +75,7 @@ public class InquiryController {
 	}
 	
 	// <button class="btn-save button" type="submit">수정</button>
-	@PostMapping("inquiryEdit.do")
+	@PostMapping("/inquiryEdit.do")
 	public String noticeEdit(
 			InquiryVO inquiry
 		   ,@RequestParam("o_filesrc") String oFilesrc
@@ -85,21 +105,21 @@ public class InquiryController {
 			inquiry.setFilesrc(oFilesrc);
 		}
 		// 2. 
-		int rowCount = this.InquiryDao.update(inquiry);
+		int rowCount = this.inquiryDao.update(inquiry);
 		if (rowCount ==1) {  // 글수정 성공
-			return "redirect:inquiryDetail.do?seq=" + inquiry.getInquiryId();  
+			return "redirect:inquiryDetail.do?inquiryId=" + inquiry.getInquiryId();  
 		}else {  // 글수정 실패
 			return "redirect:inquiry.jsp";
 		}
 	}
 	
 	// <a class="btn-edit button" href="noticeEdit.do?seq=${ notice.seq }">수정</a>
-	@GetMapping("inquiryEdit.do")
-	public String inquiryEdit(@RequestParam("inquiryId") int inquiryId
+	@GetMapping("/inquiryEdit.do")
+	public String inquiryEdit(@RequestParam("inquiryId") String inquiryId
 			, Model model) throws Exception{
-		InquiryVO inquiry = this.InquiryDao.getInquiry(inquiryId);
+		InquiryVO inquiry = this.inquiryDao.getInquiry(inquiryId);
 		model.addAttribute("inquiry", inquiry);
-		return "inquiry.inquiryEdit.jsp";
+		return "inquiryEdit.jsp";
 	}
 	
 	private String getFileNameCheck(String uploadRealPath, String originalFilename) {
@@ -135,7 +155,8 @@ public class InquiryController {
 			inquiry.setFilesrc(filesystemName);
 		}
 		/* inquiry.setMemberId("5"); */
-		int rowCount = this.InquiryDao.insert(inquiry);
+	/*
+		int rowCount = this.inquiryDao.insert(inquiry);
 		if (rowCount ==1) {  // 글쓰기 성공
 			return "redirect:inquiry.jsp";  // 스프링 [리다이렉트] redirect: 접두사 사용 / 포워딩
 		}else {  // 글쓰기 실패
@@ -148,7 +169,7 @@ public class InquiryController {
 	// <a class="btn-write button" href="noticeReg.htm">글쓰기</a>
 	@GetMapping(value = "/inquiryReg.do")
 	public String inquiryReg(HttpSession session)throws Exception {
-		return "inquiry.inquiryReg.jsp";
+		return "inquiryReg.jsp";
 	}
 	
 	// 2.
@@ -160,13 +181,14 @@ public class InquiryController {
 		  , @RequestParam(value = "query", defaultValue = "") String query
 		  ) throws Exception {
 		
-		List<InquiryVO> list = (List<InquiryVO>) this.InquiryDao.getInquirys(page, filed, query);
+		List<InquiryVO> list = (List<InquiryVO>) this.inquiryDao.getInquirys(page, filed, query);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("message", "hello world!");
 	
-		return "inquiry.inquiry.jsp";
+		return "inquiry.jsp";
 	}
-	
+	*/
 
 }
+

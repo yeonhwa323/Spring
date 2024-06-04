@@ -13,14 +13,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InquiryVO {
 	
-	private int inquiryId;
+	private String inquiryId;
 	private String inquiryTitle;
 	private String inquiryContent;
 	private Date inquiryDate;
 	private int buyInquiry;
-	private int etcInquiry;
 	private int generalInquiryId;
-	private int memberId;
+	private int etcInquiry;
+	private String memberId;
 	
 	private String filesrc;	
 	

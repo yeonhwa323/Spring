@@ -6,10 +6,10 @@ import org.doit.senti.domain.user.MemberVO;
 public interface SignUpMapper {
 	
 	// 회원가입
-	void insert(MemberVO memver);
+	void insert(MemberVO member);
 	
-	// 이메일 중복확인
-	int dupliEmail(String memeber_email);
+	// 아이디 중복확인
+	int dupliId(String memeberId);
 	
 	
 	

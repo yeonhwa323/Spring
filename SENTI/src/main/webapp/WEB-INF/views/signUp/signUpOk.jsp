@@ -91,9 +91,9 @@ button {
 			<i step="1" class="iMiddle"></i>
 			<div class="d2">
 			 <div class="dd">
-				<h3 class="agree">${param.member_name}님, 간편가입이<br>완료되었습니다!</h3>
+				<h3 class="agree">${member.memberName}님, 간편가입이<br>완료되었습니다!</h3>
 				</div>
-				<a class="btn2" href="http://localhost/jspPro/sentiBoard/main.jsp">쇼핑하러가기</a>
+				<a class="btn2" href="${pageContext.request.contextPath}signUp/login.do">로그인 하러 가기</a>
 			</div>
 		</div>
 	</div>

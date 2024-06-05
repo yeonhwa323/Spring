@@ -108,53 +108,53 @@
         <h1>상품 등록 페이지</h1>
         <form action="" method="post" enctype="multipart/form-data">
             <label for="pd_name">상품명:</label>
-            <input type="text" id="pd_name" name="pd_name" >
+            <input type="text" id="pd_name" name="pdName" value="상품">
 			
 			<label for="pd_info">상품설명:</label>
-            <input type="text" id="pd_info" name="pd_info">
+            <input type="text" id="pd_info" name="pdInfo" value="상품">
 			
 			<label class="" for="brand">브랜드:</label>
-            <select class="brand" id="brand_id" name="brand_id">
+            <select class="brand" id="brand_id" name="brandId">
             	<option value="" disabled selected>카테고리를 선택해주세요</option>
             	<c:forEach var="brand" items="메종마르지엘라">
-                    <option value= "1">메종마르지엘라</option>
+                    <option value= "1" selected>메종마르지엘라</option>
                 </c:forEach>
             </select>
             
             <label for="price">가격:</label>
-            <input type="number" id="pd_price" name="pd_price" >
+            <input type="number" id="pd_price" name="pdPrice" value="140000" >
 
             <label for="discount">할인율:</label>
-            <input type="number" id="pd_discount_rate" name="pd_discount_rate" min="0" max="100">
+            <input type="number" id="pd_discount_rate" name="pdDiscountRate" min="0" max="100" value="14">
 
             <label for="pd_image">이미지 업로드:</label>
-            <input type="file" id="pd_image_url" name="pd_image_url" multiple/>
+            <input type="file" id="pd_image_url" name="pdImageList" multiple/>
 
             <label for="pd_info_image">상품 설명 이미지:</label> <!-- 추가된 라벨 -->
-            <input type="file" id="pd_info_image_url" name="pd_info_image_url" > <!-- 추가된 이미지 업로드 -->
+            <input type="file" id="pd_info_image_url" name="pdInfoImage" > <!-- 추가된 이미지 업로드 -->
 
             <label class="main_category" for="main_category">Main Category:</label>
-            <select class="main_category" id="main_category" name="main_ctgr_id">
+            <select class="main_category" id="main_category" name="mainCtgrId">
 				<option value="" disabled selected>카테고리를 선택해주세요</option>
-				<option value="1" >여성</option>
+				<option value="1" selected>여성</option>
 			</select>
 
             <label class="" for="large_category">Large Category:</label>
-            <select class="large_category" id="large_category" name="large_ctgr_id">
+            <select class="large_category" id="large_category" name="largeCtgrId">
             	<option value="" disabled selected>카테고리를 선택해주세요</option>
-            	<option value="1" >여성의류</option>
+            	<option value="1" selected >여성의류</option>
             </select>
 
             <label class="" for="medium_category">Medium Category:</label>
-            <select class="medium_category" id="medium_category" name="medium_ctgr_id">
+            <select class="medium_category" id="medium_category" name="mediumCtgrId">
             	<option value="" disabled selected>카테고리를 선택해주세요</option>
-            	<option value="11" >상의</option>
+            	<option value="11"  selected>상의</option>
             </select>
 
             <label class="" for="small_category">Small Category:</label>
-            <select class="small_category" id="small_category" name="small_ctgr_id">
+            <select class="small_category" id="small_category" name="smallCtgrId">
             	<option value="" disabled selected>카테고리를 선택해주세요</option>
-            	<option value="1" >반소매 티셔츠</option>
+            	<option value="1" selected >반소매 티셔츠</option>
             </select>
 			<br>
 			<br>

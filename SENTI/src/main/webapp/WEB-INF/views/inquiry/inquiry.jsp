@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/jspPro/sentiBoard/css/qna-mantoman.css">
+<link rel="stylesheet" type="text/css" href="#">
+<link rel="stylesheet" href="../inquiry/inquiry.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -710,94 +712,6 @@ a, button {
     box-sizing: border-box;
 }
 
-.my_tbl_inquire .my_tbl_tit {
-    margin-top: 10px;
-    border-top: 4px solid #000;
-}
-
-.my_tbl_lst .my_tbl, .my_tbl_lst>li {
-    border-bottom: 1px solid #d4d4d4;
-}
-
-.my_tbl_tit {
-    border-bottom: 1px solid #000;
-    font-weight: 700;
-}
-
-.my_tbl_info {
-    display: table;
-    table-layout: fixed;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-    color: #303033;
-}
-
-.my_tbl_lst .my_tbl_tit .type, .my_tbl_lst .my_tbl_tit .type .tit {
-    text-align: center;
-}
-
-.my_tbl_info p, td {
-    display: table-cell;
-    min-height: 50px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-
-
-p, td {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    unicode-bidi: isolate;
-}
-
-.my_tbl_inquire .type {
-    width: 100px;
-    color: #000;
-}
-
-.my_tbl_inquire .tit {
-    padding: 15px 3%;
-    color: #000;
-    text-align: left;
-}
-
-.my_tbl_inquire .date {
-    width: 100px;
-    padding: 15px 0;
-    color: #000;
-}
-
-.my_tbl_inquire .state {
-    width: 70px;
-    padding: 15px 0;
-    color: #000;
-    font-weight: 700;
-}
-
-.my_tbl_inquire .tblbtn {
-    width: 60px;
-    padding: 0;
-    text-align: center;
-}
-
-.blind, legend {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 1px;
-    font-size: 1px;
-    line-height: 100px;
-    white-space: nowrap;
-}
 
 .my_list_none {
     height: 65px;
@@ -946,30 +860,55 @@ p, td {
 							</div>
 						</div>
 					</div>
-					<div class="my_tbl_lst my_tbl_inquire">
-						<div class="my_tbl my_tbl_tit">
-							<div class="my_tbl_info">
-								<p class="type">상담구분</p>
-								<p class="tit">상담제목</p>
-								<p class="date">작성일</p>
-								<p class="state">답변유무</p>
-								<p class="tblbtn">
-									<span class="blind">삭제</span>
-								</p>
-							</div>
-						</div>
-
-						<!---->
-						<div class="my_list_none ng-star-inserted">
-							<p >내역이 없습니다</p>
-						</div>
-						<!---->
-					</div>				
-					<ruler-basic-pagination><!---->
+					<!-- 문의내역 테이블 -->
+					<table class="my_tbl_lst my_tbl_inquire">					
+						<thead class="my_tbl my_tbl_tit">
+							<tr class="my_tbl_info">
+								<th class=inquiryId >상담번호</th>
+								<th class="type">상담구분</th>
+								<th class="title">상담제목</th>
+								<th class="date">작성일</th>
+								<th class="state">답변유무</th>
+								<th class="tblbtn">
+								  <span class="blind" hidden="삭제">삭제</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody class="my_tbl_content">
+						  <c:choose>
+                              <c:when test="${ not empty inquiry}">
+                                <c:forEach items="${ inquiry }" var="InquiryVO">
+                                  <tr>
+								    <td class="inquiryId">${ InquiryVO.inquiryId }</td>
+								    <td class="type">${ InquiryVO.generalInquiryId }</td>
+								    <td class="title">${ InquiryVO.inquiryTitle }</td>
+								    <td class="date"><fmt:formatDate value="${ InquiryVO.inquiryDate }" pattern="yyyy-MM-dd" /></td>
+								    <td class="state">아직...</td>
+								    <th class="tblbtn">
+								  		<span class="blind" hidden="삭제">삭제</span>
+									</th>								    
+							     </tr> 
+                                </c:forEach>
+                              </c:when>
+                              <c:otherwise>
+                                <tr>
+                                  <td class="my_list_none ng-star-inserted" colspan="6">
+                                   <p>작성한 문의내역이 없습니다.</p>
+                                  </td>
+                                </tr>
+                              </c:otherwise>
+                            </c:choose>						
+						</tbody>						
+							
+					</table>
+							
+					<ruler-basic-pagination>
 					</ruler-basic-pagination>
 				</section>
 
 			</ul>
+
+						
 		</div>
 	</div>
 

@@ -10,7 +10,11 @@
   </settings>
   <typeAliases>
     <!-- <typeAlias type="org.doit.ik.domain.DeptDTO" alias="DeptDTO" /> --> 
+    <typeAlias type="org.doit.senti.domain.board.InquiryVO" alias="InquiryVO" />
     <typeAlias type="org.doit.senti.domain.user.MemberVO" alias="MemberVO" />
+    <typeAlias type="org.doit.senti.domain.user.CartDTO" alias="CartDTO" />
+    <typeAlias type="org.doit.senti.domain.board.ProductRegisterDTO" alias="ProductRegisterDTO" />
+    <typeAlias type="org.doit.senti.domain.board.ProductImageDTO" alias="ProductImageDTO" />
     <typeAlias type="java.util.Map" alias="Map" />
     <typeAlias type="java.util.HashMap" alias="HashMap" />
     <typeAlias type="java.util.List" alias="List" />

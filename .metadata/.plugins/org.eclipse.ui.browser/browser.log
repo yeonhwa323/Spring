@@ -256,3 +256,23 @@
 6월 04, 2024 16:14:40.725 [17508:1364:0604/161440.724:ERROR:interface_endpoint_client.cc(722)] Message 5 rejected by interface blink.mojom.WidgetHost
 6월 04, 2024 16:31:52.84 [17508:1364:0604/163152.083:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
 6월 04, 2024 16:31:52.84 [17508:1364:0604/163152.083:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+6월 05, 2024 08:46:49.284 NEW SESSION
+6월 05, 2024 08:46:49.284 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 08:46:49.973 [13124:4704:0605/084649.973:ERROR:extension_registrar.cc(539)] Failed to unregister service worker for extension ghbmnnjooekpmoecnnnilnnbdlolhkhi
+6월 05, 2024 08:47:05.135 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 08:47:14.892 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 08:47:53.758 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 08:48:07.821 [11056:16552:0605/084807.820:ERROR:get_updates_processor.cc(263)] PostClientToServerMessage() failed during GetUpdates with error Network error (ERR_ABORTED)
+6월 05, 2024 08:51:41.141 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 08:52:01.605 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 08:52:08.585 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 09:07:07.329 Created TensorFlow Lite XNNPACK delegate for CPU.
+6월 05, 2024 09:54:31.610 [14568:15000:0605/095431.609:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 05, 2024 10:33:42.324 [14568:15000:0605/103342.323:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 05, 2024 11:33:23.856 [14568:10536:0605/113323.855:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+6월 05, 2024 11:34:25.110 [14568:10536:0605/113425.110:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -7
+6월 05, 2024 11:34:28.868 [14568:10536:0605/113428.868:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+6월 05, 2024 11:34:38.472 [14568:10536:0605/113438.471:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+6월 05, 2024 13:19:49.129 [14568:10536:0605/131949.128:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+6월 05, 2024 17:40:35.768 [14568:15000:0605/174035.768:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost

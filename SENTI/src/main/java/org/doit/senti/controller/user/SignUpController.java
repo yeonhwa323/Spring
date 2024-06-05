@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.doit.senti.domain.user.MemberVO;
 import org.doit.senti.service.user.SignUpService;
 import org.slf4j.Logger;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -21,7 +24,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @AllArgsConstructor
-@RequestMapping("/signUp")
+@RequestMapping("/signUp/*")
 public class SignUpController {
 	
 	private SignUpService signUpService;
@@ -39,9 +42,17 @@ public class SignUpController {
 	}
 	
 	@PostMapping("/join.do")
-	public String join(MemberVO member) {
+	public String join(MemberVO member, Model model) {
 		log.info("> SignUpController.join() Post...");
 		this.signUpService.join(member);
-		return "redirect:../WEB-INF/views/signUp/signUpOk.jsp";
+		model.addAttribute("member",member);
+		return "redirect:signUpOk.do";
+	}
+	
+	@GetMapping("/signUpOk.do")
+	public String signUpOk(@RequestParam("member")MemberVO member, Model model) {
+		log.info("> SignUpController.signUpOk() GET...");
+		model.addAttribute("member", member);
+		return "signUp/signUpOk.jsp";
 	}
 }

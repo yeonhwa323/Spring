@@ -5,14 +5,14 @@
   
 <mapper namespace="org.doit.senti.mapper.SignUpMapper">
   <insert id="insert" parameterType="MemberVO">
-    INSERT INTO MEMBER (member_id, member_pwd, member_name, member_email)
-    VALUES ((SELECT NVL(MAX(member_id),0)+1 FROM MEMBER), #{member_pwd}, #{member_name},#{member_email})
+    INSERT INTO MEMBER (member_id, member_pwd, member_name)
+    VALUES (#{memberId}, #{memberPwd}, #{memberName})
   </insert>
   
-  <select id="dupliEmail" resultType="int">
+  <select id="dupliId" resultType="int">
     SELECT COUNT(*)
     FROM MEMBER
-    WHERE member_email = #{member_email}
+    WHERE member_id = #{memberId}
   </select>
 </mapper>
  

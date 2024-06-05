@@ -1,6 +1,8 @@
 package org.doit.senti.domain.board;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,13 +13,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductImageDTO {
 	
-	private int pd_image_id;
-	private String pd_image_url;
-	private String pd_info_image_url;
-	private int pd_id;
-	private String pd_image_uuid;
-	private String pd_image_info_uuid;
+	private int pdImageId;
+	private String pdImageUrl;
+	private String pdInfoImageUrl;
+	private int pdId;
+	private String pdImageUuid;
+	private String pdImageInfoUuid;
 	
-	private CommonsMultipartFile file;
+	private List<MultipartFile> pdImageList;
+	private MultipartFile pdInfoImage;
+
 	
 }

@@ -493,12 +493,12 @@ button {
 			<div class="d322">
 				<input class="ip4" placeholder="이름 입력"
 					autocapitalize="none" autocomplete="username" type="text"
-					name="member_name" value="">
+					name="memberName" value="">
 			</div>
 			<div class="d32">
 				<input class="ip1" placeholder="아이디 (이메일) 입력"
 					autocapitalize="none" autocomplete="username" type="text"
-					name="member_email" value="">
+					name="memberId" value="">
 			</div>
 			<button class="btn1" type="button"disabled="">다음</button>
 		</div>
@@ -511,7 +511,7 @@ button {
 			<div class="d33">
 				<input class="ip3" placeholder="비밀번호 입력" autocapitalize="none"
 					id="new-password" autocomplete="new-password" type="password"
-					name="member_pwd">
+					name="memberPwd">
 				<p class="p1">
 					<span class="sp3">대소문자</span><span class="sp3">숫자</span><span
 						class="sp3">특수문자</span><span class="sp3">8-20자 이내</span>
@@ -624,17 +624,33 @@ $(document).ready(function(){
   }
   
   $(".ip1").on("keyup",function validateEmail() {
-	var email = $(".ip1").val();
+	var memberId = $(".ip1").val();
 	var name = $(".ip4").val();
   	var result = '<p class="p2">이메일 형식이 올바르지 않습니다.</p>';
+  	var result1 = '<p class="p2">이미 사용중인 이메일입니다.</p>';
+  	
   
   	$(".btn1").prop('disabled', true);
   	$(".p2").remove();
-  	if (!emailCheck(email)) {
+  	if (!emailCheck(memberId)) {
   		$(".d32").append(result);
   	} 
-  	if (emailCheck(email)&&nameCheck(name)) {
-  		$(".btn1").prop('disabled', false);
+  	if (emailCheck(memberId)&&nameCheck(name)) {
+  		$.ajax({
+    		  url: '/signUp/dupliId.do'
+    		 ,method: 'POST'
+   	         ,data: {memberId:memberId}
+             ,datatype: 'json'
+    	     ,success: function(data, callback, xhr){
+    		    if (data == 1) {
+    		      $(".d32").append(result1);
+				}else{
+				  $(".btn1").prop('disabled', false);	
+				}	  
+    		      }
+    	  });
+	  		
+  		
 	}
     
   });

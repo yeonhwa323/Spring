@@ -161,6 +161,7 @@ public class CustomerController {
 		return "noticeReg.jsp";
 	}
 	*/
+	
 	// <a class="btn-write button" href="noticeReg.htm">글쓰기</a>
 	@GetMapping(value = "/noticeReg.htm")
 	public String noticeReg(HttpSession session)throws Exception {

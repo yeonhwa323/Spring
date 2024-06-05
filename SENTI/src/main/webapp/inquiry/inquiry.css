@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+.my_tbl_inquire {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.my_tbl_tit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.my_tbl_info {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    min-height: 50px;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.my_tbl_info:first-of-type {
+    border-top: 4px solid var(--ruler-semantic-color-border-divider-strong);
+}
+
+
+.inquiryId {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    flex: 0 0 100px;
+    width: 10%;	
+}
+
+.type {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 15px 3%;	
+    width: 25%;
+}
+
+.title {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    flex: 0 0 100px;
+	width: 25%;
+}
+
+.date {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    flex: 0 0 100px;	
+    width: 25%;
+}
+
+.state {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    flex: 0 0 70px;
+    width: 25%;
+}
+
+.blind {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    flex: 0 0 60px;
+    width: 10%;
+}
+
+.my_tbl_content {
+	display: flex;
+    align-items: center;
+    height: 65px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

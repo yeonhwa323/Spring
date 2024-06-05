@@ -600,7 +600,7 @@ button {
                         </a>
                      </li>
                      <li class="my-page1"><a class="my-page2"
-                        href="/sentiBoard/user/mypage.do?member_id=1"> <i class="my-icon"></i>
+                        href="${pageContext.request.contextPath}mypage/mypage.do"> <i class="my-icon"></i>
                            <strong class="my-page-text">MY PAGE</strong>
                      </a>
                      </li>
@@ -610,7 +610,7 @@ button {
                               LIKE</strong>
                      </a></li>
                      <li class="shop-bag1"><a class="shop-bag2"
-                        href="#"> <i
+                        href="/user/cart.do"> <i
                            class="bag-icon"></i> <strong class="my-bag-text">SHOPPING
                               BAG</strong>
                      </a></li>

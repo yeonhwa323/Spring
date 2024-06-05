@@ -139,7 +139,7 @@ public class CustomerController {
 			
 			notice.setFilesrc(filesystemName);
 		}
-		notice.setWriter("sieun");
+		notice.setWriter("yeon");
 		int rowCount = this.noticeDao.insert(notice);
 		if (rowCount ==1) {  // 글쓰기 성공
 			return "redirect:notice.htm";  // 스프링 [리다이렉트] redirect: 접두사 사용 / 포워딩

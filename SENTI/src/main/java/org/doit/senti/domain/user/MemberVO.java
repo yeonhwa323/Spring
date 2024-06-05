@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberVO {
-  private int member_id;
-  private String member_pwd;
-  private String member_name;
-  private String member_email;
+  private String memberId;
+  private String memberPwd;
+  private String memberName;
+  
 }

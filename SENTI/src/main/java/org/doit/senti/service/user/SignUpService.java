@@ -4,7 +4,7 @@ import org.doit.senti.domain.user.MemberVO;
 
 public interface SignUpService {
 
-	boolean checkEmail(String member_email);
+	boolean checkId(String memberId);
 	void join(MemberVO member);
 	
 }

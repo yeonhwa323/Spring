@@ -8,28 +8,28 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="문의"/>
+		<item key="selection" value="Detail"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Detail"/>
+			<item value="radio"/>
+			<item value="쓰기"/>
+			<item value="bottom"/>
+			<item value="가입"/>
+			<item value="가입&apos;"/>
+			<item value="로그인"/>
+			<item value="회원가입"/>
 			<item value="문의"/>
+			<item value="상담"/>
+			<item value="문의내역"/>
 			<item value="htm"/>
 			<item value="notice"/>
-			<item value="문의내역"/>
 			<item value="확인"/>
 			<item value="Notice"/>
-			<item value="상담"/>
-			<item value="1:1"/>
-			<item value="상담 내역"/>
-			<item value="상담내역"/>
-			<item value="views"/>
-			<item value="jackson"/>
-			<item value="json"/>
-			<item value="-version&gt;"/>
-			<item value="sieun"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

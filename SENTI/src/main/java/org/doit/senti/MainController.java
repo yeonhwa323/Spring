@@ -23,4 +23,10 @@ public class MainController {
 		return "main.jsp";  
 	}
 	
+	@RequestMapping(value = "/viewDetail.do")
+	public String viewDetail(Locale locale, Model model) {
+		
+		return "viewDetail.jsp";  
+	}	
+	
 }

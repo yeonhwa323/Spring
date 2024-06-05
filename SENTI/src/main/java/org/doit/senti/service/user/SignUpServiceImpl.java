@@ -15,9 +15,9 @@ public class SignUpServiceImpl implements SignUpService {
 	private SignUpMapper signUpMapper;
 
 	@Override
-	public boolean checkEmail(String member_email) {
-		log.info("> SignUpServiceImpl.checkEmail()...");
-		return this.signUpMapper.dupliEmail(member_email)==1;
+	public boolean checkId(String memberId) {
+		log.info("> SignUpServiceImpl.checkId()...");
+		return this.signUpMapper.dupliId(memberId)==1;
 	}
 
 	@Override

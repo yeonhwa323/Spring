@@ -5,10 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="#">
 <link rel="stylesheet" href="../inquiry/inquiry.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <style>
  html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -712,15 +710,7 @@ a, button {
     box-sizing: border-box;
 }
 
-
-.my_list_none {
-    height: 65px;
-    font-size: 14px;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #d4d4d4;
-}
-
-.my_list_none, .order_list_none {
+.order_list_none {
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
@@ -857,6 +847,8 @@ a, button {
 								<a class="btn_black"
 									href="/inquiry/inquiryReg.do">1:1문의
 									쓰기</a>
+								<a class="btn_black"
+									href="/inquiry/inquiryReg2.do">radio</a>
 							</div>
 						</div>
 					</div>
@@ -864,13 +856,13 @@ a, button {
 					<table class="my_tbl_lst my_tbl_inquire">					
 						<thead class="my_tbl my_tbl_tit">
 							<tr class="my_tbl_info">
-								<th class=inquiryId >상담번호</th>
+								<th class="inquiryId" >상담번호</th>
 								<th class="type">상담구분</th>
 								<th class="title">상담제목</th>
 								<th class="date">작성일</th>
 								<th class="state">답변유무</th>
 								<th class="tblbtn">
-								  <span class="blind" hidden="삭제">삭제</span>
+								  <span class="blind" hidden="삭제">   </span>
 								</th>
 							</tr>
 						</thead>
@@ -878,7 +870,7 @@ a, button {
 						  <c:choose>
                               <c:when test="${ not empty inquiry}">
                                 <c:forEach items="${ inquiry }" var="InquiryVO">
-                                  <tr>
+                                  <tr class="my_tbl_content">
 								    <td class="inquiryId">${ InquiryVO.inquiryId }</td>
 								    <td class="type">${ InquiryVO.generalInquiryId }</td>
 								    <td class="title">${ InquiryVO.inquiryTitle }</td>
@@ -891,8 +883,8 @@ a, button {
                                 </c:forEach>
                               </c:when>
                               <c:otherwise>
-                                <tr>
-                                  <td class="my_list_none ng-star-inserted" colspan="6">
+                                <tr class="my_list_none ng-star-inserted" colspan="6">
+                                  <td >
                                    <p>작성한 문의내역이 없습니다.</p>
                                   </td>
                                 </tr>

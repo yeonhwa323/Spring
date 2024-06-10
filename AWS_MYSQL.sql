@@ -1,3 +1,4 @@
+-- password : java1234
 SELECT USER();
 SELECT DATABASE();
 USE was_db;

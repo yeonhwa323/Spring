@@ -26,10 +26,10 @@
 		</selectKey>
 		INSERT INTO inquiry
 		(inquiry_id, inquiry_title, inquiry_content,inquiry_date
-		, filesrc, buy_inquiry, general_inquiry_id, etc_inquiry, member_id)
+		, inquiryImage, buy_inquiry, general_inquiry_id, etc_inquiry, member_id)
 		VALUES(
 			(SELECT NVL(MAX(TO_NUMBER(inquiryId)),0)+1 FROM inquiry), #{inquiryTitle}, #{inquiryContent} , SYSDATE
-			, #{filesrc, javaType=String, jdbcType=VARCHAR}}, #{buyInquiry}, #{generalInquiryId}, #{etcInquiry}, #{memberId}
+			, #{inquiryImage, javaType=String, jdbcType=VARCHAR}}, #{buyInquiry}, #{generalInquiryId}, #{etcInquiry}, #{memberId}
 			)
 	</insert>
 

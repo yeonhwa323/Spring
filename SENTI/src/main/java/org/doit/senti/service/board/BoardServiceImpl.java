@@ -37,18 +37,42 @@ public class BoardServiceImpl implements BoardService{
 		List<BoardVO> list = this.boardMapper.mRead( large_ctgr_id);
 		log.info("> BoardServiceImpl.get().....");
 		
-		System.out.println(">>>> " + list.size());
 		
-		for (BoardVO vo : list) {
-			System.out.println("> " + vo  );
-		}
-		
+			
 		return list;
 		
 		
 	}
 
-	
+	@Override
+	public BoardVO get(int pd_id) {
+		
+		BoardVO pDetail = this.boardMapper.pDetail(pd_id);
+		
+		System.out.println(">>>> " + pDetail);
+		
+		return pDetail;
+	}
+
+	@Override
+	public List<BoardVO> getInfoImage(int pd_id) {
+		
+		List<BoardVO> ilist = this.boardMapper.iRead(pd_id);
+		log.info("> imageInfoUrl.get().....");
+		
+		return ilist;
+	}
+
+	@Override
+	public BoardVO lList(int large_ctgr_id) {
+		
+		BoardVO lDetail = this.boardMapper.lRead(large_ctgr_id);
+		
+		System.out.println(">>>> " + lDetail);
+		return lDetail;
+	}
+
+
 
 	
 	/*

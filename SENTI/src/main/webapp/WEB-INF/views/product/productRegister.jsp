@@ -1,5 +1,3 @@
-<%@page import="org.doit.senti.com.util.JdbcUtil"%>
-<%@page import="org.doit.senti.com.util.ConnectionProvider"%>
 <%@page import="org.doit.senti.domain.board.Main_CtgrVO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.sql.SQLException"%>

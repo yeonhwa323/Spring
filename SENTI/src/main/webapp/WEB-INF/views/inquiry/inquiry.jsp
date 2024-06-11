@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <style>
- html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
 	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
 	b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
@@ -34,13 +34,14 @@ ol, ul, li {
 	list-style: none;
 }
 
-article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, main, menu,
+	nav, section, summary {
 	display: block;
 }
 
 section {
-    display: block;
-    unicode-bidi: isolate;
+	display: block;
+	unicode-bidi: isolate;
 }
 
 ul {
@@ -54,13 +55,13 @@ ul {
 	unicode-bidi: isolate;
 }
 
-@media (min-width: 541px) {
-    .css-1t4xf4n {
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        padding-top: 190px;
-    }
+@media ( min-width : 541px) {
+	.css-1t4xf4n {
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		padding-top: 190px;
+	}
 }
 
 @media ( min-width : 541px) {
@@ -359,11 +360,11 @@ body, input, select, textarea, button, a {
 <style>
 .css-tmdn83 {
 	display: inline-block;
-	font-family: var(--ruler-semantic-typography-title-m-medium-font-family);
-	font-weight: var(--ruler-semantic-typography-title-m-medium-font-weight);
-	line-height: var(--ruler-semantic-typography-title-m-medium-line-height);
-	font-size: var(--ruler-semantic-typography-title-m-medium-font-size);
-	color: var(--ruler-semantic-color-text-primary);
+	font-family: var(- -ruler-semantic-typography-title-m-medium-font-family);
+	font-weight: var(- -ruler-semantic-typography-title-m-medium-font-weight);
+	line-height: var(- -ruler-semantic-typography-title-m-medium-line-height);
+	font-size: var(- -ruler-semantic-typography-title-m-medium-font-size);
+	color: var(- -ruler-semantic-color-text-primary);
 }
 
 .css-1heuese {
@@ -436,7 +437,7 @@ body, input, select, textarea, button, a {
 }
 
 .css-f9qh2y:first-of-type {
-	border-bottom: 1px solid var(--ruler-scale-color-gray-950);
+	border-bottom: 1px solid var(- -ruler-scale-color-gray-950);
 }
 
 .css-r9nzd6 {
@@ -451,18 +452,16 @@ body, input, select, textarea, button, a {
 
 .css-17x39sj {
 	display: inline-block;
-	font-family: var(--ruler-semantic-typography-text-l-font-family);
-	font-weight: var(--ruler-semantic-typography-text-l-font-weight);
-	line-height: var(--ruler-semantic-typography-text-l-line-height);
-	font-size: var(--ruler-semantic-typography-text-l-font-size);
-	color: var(--ruler-semantic-color-text-secondary);
+	font-family: var(- -ruler-semantic-typography-text-l-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-l-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-l-line-height);
+	font-size: var(- -ruler-semantic-typography-text-l-font-size);
+	color: var(- -ruler-semantic-color-text-secondary);
 }
 
 .css-1o3oomb {
 	margin-top: 60px;
 }
-
-
 
 .css-19djemi {
 	display: -webkit-box;
@@ -479,16 +478,16 @@ body, input, select, textarea, button, a {
 	justify-content: center;
 	width: 100%;
 	margin-top: 30px;
-	border-top: 4px solid var(--ruler-scale-color-gray-950);
+	border-top: 4px solid var(- -ruler-scale-color-gray-950);
 }
 
 .css-1vqrq36 {
 	display: inline-block;
-	font-family: var(--ruler-semantic-typography-text-xxl-bold-font-family);
-	font-weight: var(--ruler-semantic-typography-text-xxl-bold-font-weight);
-	line-height: var(--ruler-semantic-typography-text-xxl-bold-line-height);
-	font-size: var(--ruler-semantic-typography-text-xxl-bold-font-size);
-	color: var(--ruler-semantic-color-text-primary);
+	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
+	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
+	color: var(- -ruler-semantic-color-text-primary);
 }
 
 .css-zp7ii8 {
@@ -504,65 +503,65 @@ body, input, select, textarea, button, a {
 }
 
 .css-n0ir3y:first-of-type {
-    -webkit-flex: 0 0 100px;
-    -ms-flex: 0 0 100px;
-    flex: 0 0 100px;
+	-webkit-flex: 0 0 100px;
+	-ms-flex: 0 0 100px;
+	flex: 0 0 100px;
 }
 
 .css-n0ir3y {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex: 1 1 0;
-    -ms-flex: 1 1 0;
-    flex: 1 1 0;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    min-height: 50px;
-    -webkit-flex: 1 1 0;
-    -ms-flex: 1 1 0;
-    flex: 1 1 0;
-    padding: 15px 1%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex: 1 1 0;
+	-ms-flex: 1 1 0;
+	flex: 1 1 0;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	min-height: 50px;
+	-webkit-flex: 1 1 0;
+	-ms-flex: 1 1 0;
+	flex: 1 1 0;
+	padding: 15px 1%;
 }
 
 .css-ery12n {
-    display: inline-block;
-    font-family: var(--ruler-semantic-typography-text-xxl-bold-font-family);
-    font-weight: var(--ruler-semantic-typography-text-xxl-bold-font-weight);
-    line-height: var(--ruler-semantic-typography-text-xxl-bold-line-height);
-    font-size: var(--ruler-semantic-typography-text-xxl-bold-font-size);
-    color: var(--ruler-semantic-color-text-primary);
-    text-align: center;
-    white-space: pre;
+	display: inline-block;
+	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
+	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
+	color: var(- -ruler-semantic-color-text-primary);
+	text-align: center;
+	white-space: pre;
 }
 
 .css-8xai2a {
-    display: inline-block;
-    font-family: var(--ruler-semantic-typography-text-l-font-family);
-    font-weight: var(--ruler-semantic-typography-text-l-font-weight);
-    line-height: var(--ruler-semantic-typography-text-l-line-height);
-    font-size: var(--ruler-semantic-typography-text-l-font-size);
-    color: var(--ruler-semantic-color-text-secondary);
-    text-align: center;
-    white-space: nowrap;
-    padding-top: 7px;
-    padding-bottom: 6px;
+	display: inline-block;
+	font-family: var(- -ruler-semantic-typography-text-l-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-l-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-l-line-height);
+	font-size: var(- -ruler-semantic-typography-text-l-font-size);
+	color: var(- -ruler-semantic-color-text-secondary);
+	text-align: center;
+	white-space: nowrap;
+	padding-top: 7px;
+	padding-bottom: 6px;
 }
 
 .css-izpnhq {
-    display: inline-block;
-    font-family: var(--ruler-semantic-typography-text-l-bold-font-family);
-    font-weight: var(--ruler-semantic-typography-text-l-bold-font-weight);
-    line-height: var(--ruler-semantic-typography-text-l-bold-line-height);
-    font-size: var(--ruler-semantic-typography-text-l-bold-font-size);
-    color: var(--ruler-semantic-color-text-primary);
+	display: inline-block;
+	font-family: var(- -ruler-semantic-typography-text-l-bold-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-l-bold-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-l-bold-line-height);
+	font-size: var(- -ruler-semantic-typography-text-l-bold-font-size);
+	color: var(- -ruler-semantic-color-text-primary);
 }
 
 .css-19ft22s {
@@ -575,11 +574,11 @@ body, input, select, textarea, button, a {
 
 .css-192or3 {
 	display: inline-block;
-	font-family: var(--ruler-semantic-typography-text-xxl-bold-font-family);
-	font-weight: var(--ruler-semantic-typography-text-xxl-bold-font-weight);
-	line-height: var(--ruler-semantic-typography-text-xxl-bold-line-height);
-	font-size: var(--ruler-semantic-typography-text-xxl-bold-font-size);
-	color: var(--ruler-semantic-color-text-primary);
+	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
+	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
+	color: var(- -ruler-semantic-color-text-primary);
 	margin-top: 60px;
 }
 
@@ -589,21 +588,21 @@ body, input, select, textarea, button, a {
 
 .css-vuajq3 {
 	display: inline-block;
-	font-family: var(--ruler-semantic-typography-text-xxl-bold-font-family);
-	font-weight: var(--ruler-semantic-typography-text-xxl-bold-font-weight);
-	line-height: var(--ruler-semantic-typography-text-xxl-bold-line-height);
-	font-size: var(--ruler-semantic-typography-text-xxl-bold-font-size);
-	color: var(--ruler-semantic-color-text-secondary);
+	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
+	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
+	color: var(- -ruler-semantic-color-text-secondary);
 	margin-top: 60px;
 }
 
 .css-130oa9n {
 	display: inline-block;
-	font-family: var(--ruler-semantic-typography-text-l-font-family);
-	font-weight: var(--ruler-semantic-typography-text-l-font-weight);
-	line-height: var(--ruler-semantic-typography-text-l-line-height);
-	font-size: var(--ruler-semantic-typography-text-l-font-size);
-	color: var(--ruler-semantic-color-text-secondary);
+	font-family: var(- -ruler-semantic-typography-text-l-font-family);
+	font-weight: var(- -ruler-semantic-typography-text-l-font-weight);
+	line-height: var(- -ruler-semantic-typography-text-l-line-height);
+	font-size: var(- -ruler-semantic-typography-text-l-font-size);
+	color: var(- -ruler-semantic-color-text-secondary);
 	position: relative;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -626,99 +625,98 @@ body, input, select, textarea, button, a {
 	display: inline-block;
 	width: 4px;
 	height: 4px;
-	background-color: var(--ruler-scale-color-gray-950);
+	background-color: var(- -ruler-scale-color-gray-950);
 	border-radius: 100%;
 }
 </style>
 <style>
 .my_inquire {
-    position: relative;
+	position: relative;
 }
 
 .my_tit {
-    position: relative;
-    padding-bottom: 10px;
-    border-bottom: 4px solid #000;
-    font-size: 22px;
-    color: #000;
-    line-height: 30px;
-    font-weight: 500;
+	position: relative;
+	padding-bottom: 10px;
+	border-bottom: 4px solid #000;
+	font-size: 22px;
+	color: #000;
+	line-height: 30px;
+	font-weight: 500;
 }
 
 .m_view {
-    display: none;
+	display: none;
 }
 
 .cs_description_container {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    gap: 6px;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+	gap: 6px;
 }
 
 .cs_description_container {
-    padding-top: 12px;
-    font-family: Pretendard;
+	padding-top: 12px;
+	font-family: Pretendard;
 }
 
 .my_inquire .cs_description {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 19.6px;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 19.6px;
 }
 
 .pc_view {
-    display: block;
+	display: block;
 }
 
 .write_btnbx {
-    text-align: right;
-    display: -webkit-box;
-    display: flex;
-    gap: 4px;
-    -webkit-box-pack: end;
-    justify-content: end;
+	text-align: right;
+	display: -webkit-box;
+	display: flex;
+	gap: 4px;
+	-webkit-box-pack: end;
+	justify-content: end;
 }
 
 .btn_bor {
-    display: inline-block;
-    border: 1px solid #d4d4d4;
-    border-radius: 2px;
-    font-size: 12px;
-    color: #5d5d5d;
-    line-height: 30px;
-    text-align: center;
-    box-sizing: border-box;
+	display: inline-block;
+	border: 1px solid #d4d4d4;
+	border-radius: 2px;
+	font-size: 12px;
+	color: #5d5d5d;
+	line-height: 30px;
+	text-align: center;
+	box-sizing: border-box;
 }
 
 a, button {
-    outline: none;
+	outline: none;
 }
 
 .btn_black {
-    display: inline-block;
-    min-width: 82px;
-    padding: 0 17px;
-    border: 1px solid #303033;
-    background: #303033;
-    font-size: 13px;
-    color: #fff;
-    line-height: 38px;
-    box-sizing: border-box;
+	display: inline-block;
+	min-width: 82px;
+	padding: 0 17px;
+	border: 1px solid #303033;
+	background: #303033;
+	font-size: 13px;
+	color: #fff;
+	line-height: 38px;
+	box-sizing: border-box;
 }
 
 .order_list_none {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
 }
-
 </style>
 </head>
 <header>
@@ -729,32 +727,22 @@ a, button {
 	<div class="mid-div">
 		<div class="mid-left">
 			<div class="mid-left-top">
-				<h3 class="name">조*화</h3>  <!-- ajax -->
+				<h3 class="name">조*화</h3>
+				<!-- ajax -->
 				<ul class="like">
-					<li class="like-li">
-						<a class="like-a" href="#">좋아요 0</a>
-					</li>
+					<li class="like-li"><a class="like-a" href="#">좋아요 0</a></li>
 				</ul>
 			</div>
 			<ul class="mid-top">
-				<li class="user-grade"><a class="grade1" href="#"> 
-				<strong class="grade2">멤버십등급</strong> 
-				<span class="grade-color">GREEN</span>
-				</a> 
-				<a class="sale" target="blank" href="#">할인혜택 보기</a>
-				</li>
-				<li class="user-coupon">
-				<a class="grade1" href="#"> 
-				<strong class="grade2">사용가능쿠폰</strong> 
-				<span class="grade-color">2</span>
-				</a>
-				</li>
-				<li class="user-mileage">
-				<a class="grade1" href="#"> 
-				<strong class="grade2">마일리지</strong> 
-				<span class="grade-color">0</span>
-				</a>
-				</li>
+				<li class="user-grade"><a class="grade1" href="#"> <strong
+						class="grade2">멤버십등급</strong> <span class="grade-color">GREEN</span>
+				</a> <a class="sale" target="blank" href="#">할인혜택 보기</a></li>
+				<li class="user-coupon"><a class="grade1" href="#"> <strong
+						class="grade2">사용가능쿠폰</strong> <span class="grade-color">2</span>
+				</a></li>
+				<li class="user-mileage"><a class="grade1" href="#"> <strong
+						class="grade2">마일리지</strong> <span class="grade-color">0</span>
+				</a></li>
 			</ul>
 			<ul class="mid-left-list-top">
 				<li class="">
@@ -806,101 +794,160 @@ a, button {
 		<div class="mid-mid">
 			<!-- 여기서부터 작업하시면 됩니다 -->
 			<ul class="mantoman-list">
-			
+
 				<section class="my_inquire">
-					<div  class="my_inquire_info">
+					<div class="my_inquire_info">
 						<h3 class="my_tit nobor">1:1 문의내역 리스트 가져와라......</h3>
 						<div class="m_view">
 							<div class="cs_description_container">
 								<div>
-									<li class="cs_description">하단 1:1
-										문의를 통해서도 상담이 가능합니다.</li>
-									<li class="cs_description">상품문의는 각
-										상품 Q&amp;A를 이용해주세요.</li>
+									<li class="cs_description">하단 1:1 문의를 통해서도 상담이 가능합니다.</li>
+									<li class="cs_description">상품문의는 각 상품 Q&amp;A를 이용해주세요.</li>
 								</div>
 								<div>
-									<li class="cs_description">고객센터
-										운영시간 : 평일 09:00 - 17:00</li>
-									<li class="cs_description">(점심시간 :
-										12:00 - 13:00 제외)</li>
+									<li class="cs_description">고객센터 운영시간 : 평일 09:00 - 17:00</li>
+									<li class="cs_description">(점심시간 : 12:00 - 13:00 제외)</li>
 								</div>
 							</div>
 						</div>
 						<div class="pc_view">
 							<ul class="cs_description_container">
-								<li class="cs_description">한번 등록한
-									상담내용은 수정이 불가능합니다.</li>
-								<li class="cs_description">향후 멤버쉽
-									단계별 혜택 및 선정기준은 사전공지 후 변경될 수 있습니다.</li>
+								<li class="cs_description">한번 등록한 상담내용은 수정이 불가능합니다.</li>
+								<li class="cs_description">향후 멤버쉽 단계별 혜택 및 선정기준은 사전공지 후 변경될
+									수 있습니다.</li>
 							</ul>
 						</div>
 						<div class="m_view">
 							<div class="write_btnbx">
-								<a class="btn_bor"
-									href="#">1:1문의
-									쓰기</a> <a href="tel:1644-0560"
+								<a class="btn_bor" href="#">1:1문의 쓰기</a> <a href="tel:1644-0560"
 									class="btn_bor"> 고객센터 전화하기 </a>
 							</div>
 						</div>
 						<div class="pc_view">
-							<div  class="write_btnbx">
-								<a class="btn_black"
-									href="/inquiry/inquiryReg.do">1:1문의
-									쓰기</a>
-								<a class="btn_black"
-									href="/inquiry/inquiryReg2.do">radio</a>
+							<div class="write_btnbx">
+								<a class="btn_black" href="/inquiry/inquiryReg.do">1:1문의 쓰기
+									수정 후</a> <a class="btn_black" href="/inquiry/inquiryReg2.do">수정
+									전</a>
 							</div>
 						</div>
 					</div>
 					<!-- 문의내역 테이블 -->
-					<table class="my_tbl_lst my_tbl_inquire">					
+					<table class="my_tbl_lst my_tbl_inquire">
 						<thead class="my_tbl my_tbl_tit">
 							<tr class="my_tbl_info">
-								<th class="inquiryId" >상담번호</th>
+								<th class="inquiryId">상담번호</th>
 								<th class="type">상담구분</th>
 								<th class="title">상담제목</th>
 								<th class="date">작성일</th>
 								<th class="state">답변유무</th>
-								<th class="tblbtn">
-								  <span class="blind" hidden="삭제">   </span>
+								<th class="tblbtn" hidden="삭제">
+									<!-- <th class="tblbtn"><span class="blind" hidden="삭제"> --> </span>
 								</th>
 							</tr>
 						</thead>
 						<tbody class="my_tbl_content">
-						  <c:choose>
-                              <c:when test="${ not empty inquiry}">
-                                <c:forEach items="${ inquiry }" var="InquiryVO">
-                                  <tr class="my_tbl_content">
-								    <td class="inquiryId">${ InquiryVO.inquiryId }</td>
-								    <td class="type">${ InquiryVO.generalInquiryId }</td>
-								    <td class="title">${ InquiryVO.inquiryTitle }</td>
-								    <td class="date"><fmt:formatDate value="${ InquiryVO.inquiryDate }" pattern="yyyy-MM-dd" /></td>
-								    <td class="state">아직...</td>
-								    <th class="tblbtn">
-								  		<span class="blind" hidden="삭제">삭제</span>
-									</th>								    
-							     </tr> 
-                                </c:forEach>
-                              </c:when>
-                              <c:otherwise>
-                                <tr class="my_list_none ng-star-inserted" colspan="6">
-                                  <td >
-                                   <p>작성한 문의내역이 없습니다.</p>
-                                  </td>
-                                </tr>
-                              </c:otherwise>
-                            </c:choose>						
-						</tbody>						
+							<c:choose>
+								<c:when test="${ not empty inquiry}">
+									<c:forEach items="${ inquiry }" var="InquiryVO">
+										<tr class="my_tbl_content">
+											<td class="inquiryId">${ InquiryVO.inquiryId }</td>
+											<td class="type">${ InquiryVO.generalInquiryId }</td>
+											<td class="title"><a onclick="title">${ InquiryVO.inquiryTitle }</a></td>
+											<td class="date"><fmt:formatDate
+													value="${ InquiryVO.inquiryDate }" pattern="yyyy-MM-dd" /></td>
+											<td class="en6mg293 css-1l8qa95 e4b5pod0"><span
+												class="en6mg296 css-iuu3r9 e1vrs9a70" color="primary">NO</span>
+											</td>
+											<td class="en6mg293 css-funda3 e4b5pod0">
+												<!-- <button class="css-1a57md6 en6mg298">삭제</button> -->
+												<a href="/inquiry/delete?inquiryId=${InquiryVO.inquiryId}&filesrc=${InquiryVO.filesrc}">Delete</a>
+											</td>											
+										</tr>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<tr class="my_list_none ng-star-inserted" colspan="6">
+										<td>
+											<p>작성한 문의내역이 없습니다.</p>
+										</td>
+									</tr>
+								</c:otherwise>
+							</c:choose>
+
+								
+
+						<%-- 	
+						<tbody>
+							<c:forEach var="inquiry" items="${inquiries}">
+								<tr>
+									<td>${inquiry.inquiryTitle}</td>
+									<td><img src="/inquiry/upload/${inquiry.inquiryImage}"
+										alt="${inquiry.inquiryTitle}" width="100"></td>
+									<td>${inquiry.inquiryDate}</td>
+									<td>${inquiry.memberId}</td>
+									<td>${inquiry.inquiryContent}</td>
+									<td><a
+										href="/inquiry/delete?inquiryId=${inquiry.inquiryId}&filesrc=${inquiry.inquiryImage}">Delete</a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+ 						--%>
+
+						</tbody>
+						<tfoot>
 							
+						</tfoot>
+
 					</table>
-							
-					<ruler-basic-pagination>
-					</ruler-basic-pagination>
+					
 				</section>
+				
+				<!--라디오 선택시 나타나는 새로운 창-->
+								<div id="hiddenDiv1" class="hidden">
+									<ul class="clear">
+										<li class="order_no ng-star-inserted">
+											<div class="in_td">
+												<strong class="type">주문번호</strong>
+											</div>
+											<div class="in_td orderno_td">
+											
+												<input type="text" id="orderNo"
+													formcontrolname="order_serial" placeholder=" "
+													class="ng-untouched ng-pristine" style="position: inherit;">
+
+												<button type="button" class="btn btn_bor">번호 조회</button>
+
+											</div>
+											<div class="in_td">
+												<strong class="type">상품명</strong>
+											</div>
+
+											<div class="in_td ng-star-inserted">
+												<!---->
+											</div> <!----> <!---->
+										</li>
+										
+										<li class="order_no order_bx ng-star-inserted">
+											<div class="in_td">
+												<strong class="type">주문일자</strong>
+											</div>
+											<div class="in_td">
+												<p class="txt"></p>
+
+											</div>
+											<div class="in_td">
+												<strong class="type">결제방법</strong>
+											</div>
+											<div class="in_td">
+												<p class="txt"></p>
+
+											</div>
+										</li>
+									</ul>
+								</div>
 
 			</ul>
 
-						
 		</div>
 	</div>
 
@@ -909,6 +956,7 @@ a, button {
 		<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush="false"></jsp:include>
 	</footer>
 </body>
+<!-- 
 <script>
 $(document).ready(function() {
     $('.css-140aynn').click(function() {
@@ -924,5 +972,19 @@ $(document).ready(function() {
         }
     });
 });
+</script>
+ -->
+
+<script>
+        document.addEventListener("onclick", function() {
+            const titleClick = document.querySelectorAll('a[onclick="title"]');
+            const hiddenDiv1 = document.getElementById("hiddenDiv1");
+
+            titleClick.forEach(onclick => {
+            	onclick.addEventListener("change", function() {
+                    hiddenDiv1.classList.remove("hidden");
+                });
+            });
+        });
 </script>
 </html>

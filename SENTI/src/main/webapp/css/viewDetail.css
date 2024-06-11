@@ -1526,7 +1526,7 @@
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
-        display: flex;
+        display: inline-grid;
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column;
@@ -1562,6 +1562,7 @@
         font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
         font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
         color: var(--ruler-semantic-color-common-interactive);
+        padding-top:10px;
     }
     .css-32ihlf:last-of-type {
         margin-bottom: 0;
@@ -1596,6 +1597,7 @@
         font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
         font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
         color: var(--ruler-semantic-color-text-secondary);
+        padding-top: 15px;
     }
     .css-ozyn3l {
         padding: 20px 0;
@@ -3977,4 +3979,20 @@
     overflow: hidden;
   }
 
+  .css-1bb02to {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    line-height: 26px;
+    text-align: center;
+    font-weight: normal;
+  }
+   .css-1t6iktd {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 140px;
+    border-bottom: 1px solid rgb(212, 212, 212);
+  }
    

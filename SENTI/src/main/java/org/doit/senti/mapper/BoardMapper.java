@@ -15,6 +15,11 @@ public interface BoardMapper {
 
 	List<BoardVO> mRead(int large_ctgr_id);
 	List<BoardVO> selectBySmallCtgrId(int small_ctgr_id);
+	BoardVO pDetail(int pd_id);
+	List<BoardVO> selectBylargeCtgrId(int largeCtgrId);
+	List<BoardVO> iRead(int pd_id);
+	BoardVO lRead(int large_ctgr_id);
+	
 	
 	/*
 	void insert(BoardVO boardVO);//새글쓰기

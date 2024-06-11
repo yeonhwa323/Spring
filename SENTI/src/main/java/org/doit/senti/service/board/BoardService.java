@@ -3,11 +3,13 @@ package org.doit.senti.service.board;
 import java.util.List;
 
 import org.doit.senti.domain.board.BoardVO;
-import org.springframework.web.bind.annotation.PathVariable;
 
 public interface BoardService {
 
 	List<BoardVO> getList(int medium_ctgr_id);
+	
+	BoardVO get(int pd_id);
+	
 	
 	/*
 	void register(BoardVO board);
@@ -17,5 +19,9 @@ public interface BoardService {
 	*/
 
 	List<BoardVO> mList(int large_ctgr_id);
+
+	List<BoardVO> getInfoImage(int pd_id);
+
+	BoardVO lList(int large_ctgr_id);
 	
 }

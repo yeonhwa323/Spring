@@ -45,6 +45,16 @@ public class RESTController {
 		return this.boardMapper.selectBySmallCtgrId(boardvo.getSmallCtgrId());
 	}
 	
+	@PostMapping(value = "/men_oi.do"
+			,produces = {					
+			MediaType.APPLICATION_JSON_UTF8_VALUE
+			
+	})
+	public List<BoardVO> selectBylargeCtgrId(@RequestBody BoardVO boardvo) {
+
+		return this.boardMapper.selectBylargeCtgrId(boardvo.getLargeCtgrId());
+	}
+	
 	
 	
 	 

@@ -81,12 +81,82 @@ WHERE
 	
 	<select id="mRead" resultType="org.doit.senti.domain.board.BoardVO">			
 SELECT  medium_ctgr_id,
-		medium_ctgr_name		
+		medium_ctgr_name
 FROM medium_ctgr 
 WHERE large_ctgr_id = #{large_ctgr_id}
 	</select>
 	
+		<select id="lRead" resultType="org.doit.senti.domain.board.BoardVO">			
+select large_ctgr_name
+from large_ctgr
+where large_ctgr_id=#{large_ctgr_id}
+	</select>
 	
+	
+	
+<select id="iRead" resultType="org.doit.senti.domain.board.BoardVO">
+SELECT
+    pd_info_image_url
+FROM
+    product_image
+WHERE
+    pd_id = #{pd_id}
+</select>	
+
+
+
+	
+	
+		<select id="selectBylargeCtgrId" resultType="org.doit.senti.domain.board.BoardVO">			
+SELECT
+    pd_option_name
+FROM
+    product_option
+WHERE
+    large_ctgr_id = #{large_ctgr_id}
+	</select>
+	
+	
+	
+	
+	
+	
+		<select id="pDetail" resultType="org.doit.senti.domain.board.BoardVO">		
+	
+ SELECT
+    p.pd_name,
+    p.pd_price,
+    p.pd_discount_rate,
+    p.pd_price * ( 1 - p.pd_discount_rate / 100 ) AS discounted,
+    i.pd_image_url,
+    i.pd_info_image_url,
+    d.deli_pay,  
+    p.large_ctgr_id,
+    p.pd_info
+    
+FROM
+    product p
+    JOIN product_image i ON p.pd_id = i.pd_id
+    JOIN delivery_pay d ON p.main_ctgr_id = d.main_ctgr_id
+      
+WHERE
+    p.pd_id = #{pd_id}
+GROUP BY
+    p.pd_name,
+    p.pd_price,
+    p.pd_discount_rate,
+    i.pd_image_url,
+    i.pd_info_image_url,
+    d.deli_pay,
+    p.large_ctgr_id,
+    p.pd_info,
+    p.pd_id
+
+	</select>
+	
+	
+	
+		
 	 <select id="selectByMediumCtgrId" resultType="org.doit.senti.domain.board.BoardVO">
 
 SELECT 

@@ -446,6 +446,7 @@ button {
 							(선택 정보 포함)</label></span>
 				</div>
 				<ul class="u">
+				
 					<div class="d4">
 						<span type="join" class="sp2"><input
 							class="ip2" name="age" type="checkbox"><label

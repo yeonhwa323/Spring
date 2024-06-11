@@ -1,11 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../inquiry/inquiry.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <style>
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -763,14 +764,6 @@ li, ol, ul {
 	}
 }
 
-.tb_lst .type {
-	display: inline-block;
-	font-size: 14px;
-	font-weight: 600;
-	color: #303033;
-	line-height: 60px;
-}
-
 .tb_lst .in_td {
 	display: table-cell;
 	height: 62px;
@@ -787,14 +780,7 @@ li, ol, ul {
 	font-size: 12px;
 }
 
-span {
-	display: inline-block;
-	overflow: hidden;
-	position: relative;
-	min-height: 20px;
-	line-height: 20px;
-	vertical-align: top;
-}
+
 
 input {
 	position: absolute;
@@ -852,7 +838,7 @@ input, textarea {
 	left: 1px;
 	width: 18px;
 	height: 18px;
-	border: 5px solid #fff;
+	border: 5px solid #bdbdbd ;
 	border-radius: 50%;
 	background: #f4f4f4;
 }
@@ -1424,7 +1410,7 @@ input[type=radio]:checked+label:before {
 	<%-- <jsp:include page="/layout/top.jsp" flush="false"></jsp:include> --%>
 </header>
 <body>
-	<form action="write_ok.ss" method="post" enctype="multipart/form-data">
+	<form action="inquiry.do" method="post" enctype="multipart/form-data">
 	<div class="mid-div">
 		<div class="mid-left">
 			<div class="mid-left-top">
@@ -1502,63 +1488,84 @@ input[type=radio]:checked+label:before {
 					산업안전보건법 제 41조 시행령에 근거하여 2018년 10월 18일 부터 산업안전보건법에 따라 고객응대근로자 보호조치를
 					시행하고 있습니다.<br> 고객응대근로자에게 폭언, 폭행 등을 하지 말아주세요.
 				</p>
+	
 				<form class="ng-untouched ng-pristine ng-invalid">
 					<fieldset>
 						<legend>1:1 문의 작성</legend>
 						<ul class="tb_lst">
-							<li>
-								<div class="in_td">
-									<strong class="type">구매관련문의</strong>
-								</div>
-								<div class="in_td">
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="선택안함" style="padding-left: 25px;"> <input
-											type="radio">선택안함
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted" id="order_radio">
-									<span> <label title="배송문의" style="padding-left: 25px;">
-											<input type="radio" name="buy" value="1">배송문의
-									</label>
-									</span> </uio-radio>
+						  <li>								
+							<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">구매관련문의</h4>
+							<div class="in_td">
+								<form action="inquiry/inquiryReg.jsp" method="post" enctype="multipart/form-data">
+									<input type="radio" id="배송문의" name="buy" value="1" >
+									<label for="배송문의" style="padding-left: 25px;">배송문의</label><br> 
+									
+									<input type="radio" id="주문문의" name="buy" value="2" >
+									<label for="주문문의" style="padding-left: 25px;">주문문의</label><br> 
+									
+									<input type="radio" id="취소문의" name="buy" value="3" >
+									<label for="취소문의" style="padding-left: 25px;">취소문의</label><br>
+											
+									<input type="radio" id="반품문의" name="buy" value="4" >
+									<label for="반품문의" style="padding-left: 25px;">반품문의</label><br>
+        							
+        							<input type="radio" id="교환문의" name="buy" value="5" >
+        							<label for="교환문의" style="padding-left: 25px;">교환문의</label><br>
 
-									<uio-radio class="ng-star-inserted" id="order_radio">
-									<span> <label title="주문문의" style="padding-left: 25px;">
-											<input type="radio" name="buy" value="2">주문문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted" id="order_radio">
-									<span> <label title="취소문의" style="padding-left: 25px;">
-											<input type="radio" name="buy" value="3">취소문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted" id="order_radio">
-									<span> <label title="반품문의" style="padding-left: 25px;">
-											<input type="radio" name="buy" value="4">반품문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted" id="order_radio">
-									<span> <label title="교환문의" style="padding-left: 25px;">
-											<input type="radio" name="buy" value="5">교환문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted" id="order_radio">
-									<span> <label title="환불문의" style="padding-left: 25px;">
-											<input type="radio" name="buy" value="6">환불문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted" id="order_radio">
-									<span> <label title="사은품문의" style="padding-left: 25px;">
-											<input type="radio" name="buy" value="7">사은품문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="입금문의" style="padding-left: 25px;"> <input
-											type="radio" name="buy" value="8">입금문의
-									</label>
-									</span> </uio-radio>
+									<input type="radio" id="환불문의" name="buy" value="6" >
+									<label for="환불문의" style="padding-left: 25px;">환불문의</label><br>
 
-								</div>
+
+									<input type="radio" id="사은품문의" name="buy" value="7" >
+									<label for="사은품문의" style="padding-left: 25px;">사은품문의</label><br> 
+
+									<input type="radio" id="입금문의" name="buy" value="8" >
+									<label for="입금문의" style="padding-left: 25px;">입금문의</label><br>
+
+        
+        							<input type="submit" value="Submit">
+    							</form>
+    					<!-- 	 
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">구매관련문의</h4>
+								<div class="in_td">
+									<form action="inquiry/inquiryReg.jsp" method="post" enctype="multipart/form-data">
+										<span class="buy_radio">
+											<input type="radio" id="배송문의" name="buy" value="배송문의" >
+											<label for="배송문의" style="padding-left: 25px;">배송문의</label><br> 
+										</span>
+										<span class="order_radio">
+											<input type="radio" id="주문문의" name="buy" value="주문문의" >
+											<label for="주문문의" style="padding-left: 25px;">주문문의</label><br> 
+										</span>
+										<span class="order_radio">
+											<input type="radio" id="취소문의" name="buy" value="취소문의" >
+											<label for="취소문의" style="padding-left: 25px;">취소문의</label><br>
+										</span>
+										<span class="order_radio">
+											<input type="radio" id="반품문의" name="buy" value="반품문의" >
+											<label for="반품문의" style="padding-left: 25px;">반품문의</label><br>
+										</span>
+										<span class="order_radio">
+											<input type="radio" id="교환문의" name="buy" value="교환문의" >
+											<label for="교환문의" style="padding-left: 25px;">교환문의</label><br> 
+										</span>
+										<span class="order_radio">
+											<input type="radio" id="환불문의" name="buy" value="환불문의" >
+											<label for="환불문의" style="padding-left: 25px;">환불문의</label><br>
+										</span>
+										<span class="order_radio">
+											<input type="radio" id="사은품문의" name="buy" value="사은품문의" >
+											<label for="사은품문의" style="padding-left: 25px;">사은품문의</label><br> 
+										</span>
+										<span class="order_radio">
+											<input type="radio" id="입금문의" name="buy" value="사은품문의" >
+											<label for="입금문의" style="padding-left: 25px;">입금문의</label><br>
+										</span>
+										
+										<input type="submit" value="Submit">
+									</form>
+								</div> 
+							-->								
 							</li>
 							<li>
 								<!--라디오 선택시 나타나는 새로운 창-->
@@ -1606,47 +1613,64 @@ input[type=radio]:checked+label:before {
 								</div>
 							</li>
 							<li>
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">일반상담문의</h4>
 								<div class="in_td">
-									<strong class="type">일반상담문의</strong>
+									<form action="inquiry.jsp" method="post" enctype="multipart/form-data">
+											<input type="radio" id="회원정보문의" name="general" value="1" >
+											<label for="회원정보문의" style="padding-left: 25px;">회원정보문의</label><br> 
+
+											<input type="radio" id="회원제도문의" name="general" value="2" >
+											<label for="회원제도문의" style="padding-left: 25px;">회원제도문의</label><br> 
+
+											<input type="radio" id="결제방법문의" name="general" value="3" >
+											<label for="결제방법문의" style="padding-left: 25px;">결제방법문의</label><br> 
+
+											<input type="radio" id="상품문의" name="general" value="4" >
+											<label for="상품문의" style="padding-left: 25px;">상품문의</label><br> 
+
+											<input type="radio" id="당첨문의" name="general" value="5" >
+											<label for="당첨문의" style="padding-left: 25px;">당첨문의</label><br> 
+
+											<input type="radio" id="쿠폰/마일리지문의" name="general"  value="6" >
+											<label for="쿠폰/마일리지문의" style="padding-left: 25px;">쿠폰/마일리지문의</label><br> 
+										
+										<input type="submit" value="Submit">
+									</form>
+								
 								</div>
+								<!-- 							
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">일반상담문의</h4>
 								<div class="in_td">
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="선택안함" style="padding-left: 25px;"> <input
-											type="radio">선택안함
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="회원정보문의" style="padding-left: 25px;"> <input
-											type="radio">회원정보문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="회원제도문의" style="padding-left: 25px;"> <input
-											type="radio">회원제도문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="결제방법문의" style="padding-left: 25px;"> <input
-											type="radio">결제방법문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="상품문의" style="padding-left: 25px;"> <input
-											type="radio" name="inquiry" value="2">상품문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="당첨문의" style="padding-left: 25px;"> <input
-											type="radio">당첨문의
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="쿠폰/마일리지문의" style="padding-left: 25px;">
-											<input type="radio">쿠폰/마일리지문의
-									</label>
-									</span> </uio-radio>
-									<!---->
+									<form action="inquiry.jsp" method="post">
+										<span class="general_radio">
+											<input type="radio" id="회원정보문의" value="회원정보문의" >
+											<label for="회원정보문의" style="padding-left: 25px;">회원정보문의</label><br> 
+										</span>
+										<span class="general_radio">
+											<input type="radio" id="회원제도문의" value="회원제도문의" >
+											<label for="회원제도문의" style="padding-left: 25px;">회원제도문의</label><br> 
+										</span>
+										<span class="general_radio">
+											<input type="radio" id="결제방법문의" value="결제방법문의" >
+											<label for="결제방법문의" style="padding-left: 25px;">결제방법문의</label><br> 
+										</span>
+										<span class="general_radio">
+											<input type="radio" id="상품문의" name="general" value="상품문의" >
+											<label for="상품문의" style="padding-left: 25px;">상품문의</label><br> 
+										</span>
+										<span class="general_radio">
+											<input type="radio" id="당첨문의" value="당첨문의" >
+											<label for="당첨문의" style="padding-left: 25px;">당첨문의</label><br> 
+										</span>
+										<span class="general_radio">
+											<input type="radio" id="쿠폰/마일리지문의" value="쿠폰/마일리지문의" >
+											<label for="쿠폰/마일리지문의" style="padding-left: 25px;">쿠폰/마일리지문의</label><br> 
+										</span>
+										
+										<input type="submit" value="Submit">
+									</form>
 								</div>
+								 -->								
 							</li>
 							<li>
 								<div div id="hiddenDiv2" class="hidden">
@@ -1686,75 +1710,80 @@ input[type=radio]:checked+label:before {
 								</div>
 							</li>
 							<li>
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">기타문의</h4>
 								<div class="in_td">
-									<strong class="type">기타문의</strong>
+									<form action="inquiry.jsp" method="post" enctype="multipart/form-data">
+											<input type="radio" id="시스템문의" name="etc" value="1" >
+											<label for="시스템문의" style="padding-left: 25px;">시스템문의</label><br> 
+											
+											<input type="radio" id="기타문의" name="etc" value="2" >
+											<label for="기타문의" style="padding-left: 25px;">기타문의</label><br> 
+											
+											<input type="radio" id="증빙서류문의" name="etc" value="3" >
+											<label for="증빙서류문의" style="padding-left: 25px;">증빙서류문의</label><br> 
+											
+											<input type="radio" id="매장문의" name="etc" value="4" >
+											<label for="매장문의" style="padding-left: 25px;">매장문의</label><br> 
+											
+											<input type="radio" id="리뷰재노출문의" name="etc" value="5" >
+											<label for="리뷰재노출문의" style="padding-left: 25px;">리뷰재노출문의</label><br> 
+											
+										<input type="submit" value="Submit">
+									</form>
+									
 								</div>
+								
+							
+							<!-- 							
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">기타문의</h4>
 								<div class="in_td">
-									<uio-radio class="ng-star-inserted"> <span>
-										<label title="선택안함" style="padding-left: 25px;"> <input
-											type="radio">선택안함
-									</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<input type="radio" name="system"> <label
-										title="시스템문의" style="padding-left: 25px;">시스템문의</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<input type="radio" name="system"> <label title="기타문의"
-										style="padding-left: 25px;">기타문의</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<input type="radio" name="system"> <label
-										title="증빙서류문의" style="padding-left: 25px;">증빙서류문의</label>
-									</span> </uio-radio>
-									<uio-radio _nghost-ctd-c86="" class="ng-star-inserted">
-									<span> <input type="radio" name="system"> <label
-										title="매장문의" style="padding-left: 25px;">매장문의</label>
-									</span> </uio-radio>
-									<uio-radio class="ng-star-inserted"> <span>
-										<input type="radio" name="system"> <label
-										title="리뷰재노출문의" style="padding-left: 25px;">리뷰재노출문의</label>
-									</span> </uio-radio>
-									<!---->
+									<form action="inquiry.jsp" method="post">
+										<span class="etc_radio">
+											<input type="radio" id="시스템문의" value="시스템문의" >
+											<label for="시스템문의" style="padding-left: 25px;">시스템문의</label><br> 
+										</span>
+										<span class="etc_radio">
+											<input type="radio" id="기타문의" value="기타문의" >
+											<label for="기타문의" style="padding-left: 25px;">기타문의</label><br> 
+										</span>
+										<span class="etc_radio">
+											<input type="radio" id="증빙서류문의" value="증빙서류문의" >
+											<label for="증빙서류문의" style="padding-left: 25px;">증빙서류문의</label><br> 
+										</span>
+										<span class="etc_radio">
+											<input type="radio" id="매장문의" value="매장문의" >
+											<label for="매장문의" style="padding-left: 25px;">매장문의</label><br> 
+										</span>
+										<span class="etc_radio">
+											<input type="radio" id="리뷰재노출문의" value="리뷰재노출문의" >
+											<label for="리뷰재노출문의" style="padding-left: 25px;">리뷰재노출문의</label><br> 
+										</span>
+										
+										<input type="submit" value="Submit">
+									</form>
+									
 								</div>
-							</li>
-
-
-							<!-- 1번라디오  -->
-
-
-							<!-- 여기까지 2번 라디오 클릭시 -->
+								
+								 -->
+							</li>							
 							<li class="user">
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">성명</h4>
 								<div class="in_td">
-									<strong class="type">성명</strong>
-								</div>
-								<div class="in_td">
+								<c:forEach items="${ member }" var="memberVO">
 									<p class="txt"></p>
-									조연화
-								</div>
+									${ memberVO.memberName }
+								</c:forEach>
+								</div>	
 							</li>
 							<li class="user_id">
-								<div class="in_td">
-									<strong class="type">아이디</strong>
-								</div>
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">아이디</h4>
 								<div class="in_td">
 									<p class="txt"></p>
-									dusk323@naver.com [GREEN]
-								</div>
-							</li>
-							<li class="user_email">
-								<div class="in_td">
-									<strong class="type">이메일</strong>
-								</div>
-								<div class="in_td">
-									<p class="txt"></p>
-									dusk323@naver.com <a href="/mypage/edit/info">이메일 변경하기</a>
+									yeon@naver.com [GREEN]							
 								</div>
 							</li>
 							<li class="tit_row">
-								<div class="in_td">
-									<strong for="u_title" class="type">제목</strong>
-								</div>
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">제목</h4>
 								<div class="in_td">
 									<input type="text" id="u_title" formcontrolname="title"
 										placeholder="제목을 입력하세요."
@@ -1763,9 +1792,7 @@ input[type=radio]:checked+label:before {
 								</div>
 							</li>
 							<li class="cnt_row">
-								<div class="in_td">
-									<strong for="u_content" class="type">내용</strong>
-								</div>
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">내용</h4>
 								<div class="in_td">
 									<div class="inptxtbx">
 										<textarea id="u_content" rows="5" cols="1"
@@ -1780,10 +1807,8 @@ input[type=radio]:checked+label:before {
 										받기</label> </uio-checkbox>
 								</div>
 							</li>
-							<li class="add_img">
-								<div class="in_td_photo">
-									<strong class="type">사진첨부</strong>
-								</div>
+							<li class="add_img"> <!-- 사진 2개까지가능 -->
+								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">사진첨부</h4>
 								<div class="in_td_photo">
 									<uio-file-upload _nghost-ctd-c113="">
 									<div class="fileUpload">
@@ -1793,7 +1818,8 @@ input[type=radio]:checked+label:before {
 										<div class="fileUpload-able" style="display: block;">
 											<label for="file" class="file">
 												<div class="btn-upload">사진파일첨부하기</div>
-											</label> <input type="file" accept="image/*" id="file" multiple="">
+											</label> 
+											<input type="file" accept="image/*" id="file" multiple="">
 										</div>
 									</div>
 									</uio-file-upload>
@@ -1812,16 +1838,18 @@ input[type=radio]:checked+label:before {
 						</ul>
 
 						<div class="btn_bx">
-							<button type="submit" class="btn_black">등록하기</button>
+							<button type="submit" class="btn_black" value="Submit">등록하기</button>
+							<button type="submit" href="inquiry.do">취소</button>
 						</div>
-						<ruler-message-dialog class="ng-star-inserted"><!---->
-						</ruler-message-dialog>
+						
 						<!---->
 						<!---->
 					</fieldset>
+					
+					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"></input>
+					
 				</form>
-				<div id="div1" class="hidden">This is Div 1</div>
-				<div id="div2" class="hidden">This is Div 2</div>
+				
 				<!---->
 			</section>
 			</ui-qna-mantoman-detail>
@@ -1854,6 +1882,7 @@ $(document).ready(function() {
 
 <script>
         document.addEventListener("DOMContentLoaded", function() {
+            /* const radioButtons = document.querySelectorAll('input[id="buy"]'); */
             const radioButtons = document.querySelectorAll('input[name="buy"]');
             const hiddenDiv1 = document.getElementById("hiddenDiv1");
 
@@ -1866,7 +1895,7 @@ $(document).ready(function() {
 </script>
 <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const radioButtons = document.querySelectorAll('input[name="inquiry"]');
+            const radioButtons = document.querySelectors('input[id="상품문의"]');
             const hiddenDiv1 = document.getElementById("hiddenDiv2");
 
             radioButtons.forEach(radio => {
@@ -1876,27 +1905,5 @@ $(document).ready(function() {
             });
         });
 </script>
-<!-- 숨겨진 div 전환하는 스크립트....실패.....
-<script>
-		document.addEventListener('DOMContentLoaded', function() {
-		    const radios = document.querySelectorAll('input[type="radio"]');
-		    const hiddenDiv1 = document.getElementById('hiddenDiv1');
-		    const hiddenDiv2 = document.getElementById('hiddenDiv2');
-		
-		    radios.forEach(radio => {
-		        radio.addEventListener('change', function(event) {
-		            if (event.target.value === '1') {
-		                div1.classList.remove('hidden');
-		                div2.classList.add('hidden');
-		            } else if (event.target.value === '2') {
-		                div1.classList.add('hidden');
-		                div2.classList.remove('hidden');
-		            }
-		        });
-		    });
-		});
 
-
-</script>
- -->
 </html>

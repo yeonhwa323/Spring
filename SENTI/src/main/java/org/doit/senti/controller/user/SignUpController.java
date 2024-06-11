@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -42,17 +43,17 @@ public class SignUpController {
 	}
 	
 	@PostMapping("/join.do")
-	public String join(MemberVO member, Model model) {
+	public String join(MemberVO member, RedirectAttributes redirectAttributes) {
 		log.info("> SignUpController.join() Post...");
 		this.signUpService.join(member);
-		model.addAttribute("member",member);
+		redirectAttributes.addFlashAttribute("member",member);
 		return "redirect:signUpOk.do";
 	}
 	
 	@GetMapping("/signUpOk.do")
-	public String signUpOk(@RequestParam("member")MemberVO member, Model model) {
+	public String signUpOk( Model model) {
 		log.info("> SignUpController.signUpOk() GET...");
-		model.addAttribute("member", member);
+		// model.addAttribute("member", member);
 		return "signUp/signUpOk.jsp";
 	}
 }

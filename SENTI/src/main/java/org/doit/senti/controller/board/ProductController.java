@@ -1,6 +1,7 @@
 package org.doit.senti.controller.board;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,11 +11,15 @@ import javax.servlet.http.HttpSession;
 import org.doit.senti.domain.board.ProductImageDTO;
 import org.doit.senti.domain.board.ProductRegisterDTO;
 import org.doit.senti.mapper.ProductRegisterMapper;
+import org.doit.senti.mapper.ReviewMapper;
+import org.doit.senti.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
@@ -26,8 +31,17 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ProductController {
 	
+
 	@Autowired
 	private ProductRegisterMapper productRegister;
+	
+	@Autowired
+	private BoardService boardService;
+
+	@Autowired
+	private ReviewMapper reviewMapper;
+	
+
 
 	@GetMapping("/productRegister.do")
 	public String productReg(HttpSession session) throws Exception{
@@ -91,6 +105,8 @@ public class ProductController {
 					
 					rowCount = this.productRegister.insertProductImg(pdImageDTO);
 					
+					
+					
 				} 
 				
 				
@@ -125,6 +141,44 @@ public class ProductController {
 			}
 
 	}
+	
+
+	
+	/*
+	 * @GetMapping("/men_mi.do") public void list(Model
+	 * model,@RequestParam("medium_ctgr_id") int medium_ctgr_id) {
+	 * log.info("> BoardController.list()..."); model.addAttribute("list",
+	 * this.boardService.getList(medium_ctgr_id));
+	 * 
+	 * }//list
+	 */	  
+	  
+	 
+	@GetMapping("/men.do")
+	public String listup(HttpSession session, Model model,@RequestParam("large_ctgr_id") int large_ctgr_id, @RequestParam("medium_ctgr_id") int medium_ctgr_id) throws Exception{
+		
+		log.info("> BoardController.list()...");
+	      model.addAttribute("mList",this.boardService.mList(large_ctgr_id));
+	      model.addAttribute("list",  this.boardService.getList(medium_ctgr_id));
+	      model.addAttribute("lList",this.boardService.lList(large_ctgr_id));
+	      
+		return "product/men.jsp";
+		
+	}
+	
+	@GetMapping("/viewDetail.do")
+	public String viewDetail(HttpSession session, Model model,@RequestParam("pd_id") int pd_id ) throws ClassNotFoundException, SQLException {
+		System.out.println(">>>>>> pd_id : "+ pd_id);
+		
+		log.info("> BoardController2.list()...");
+		
+		model.addAttribute("pDetail", this.boardService.get(pd_id));
+		model.addAttribute("iDetail", this.boardService.getInfoImage(pd_id));
+		model.addAttribute("reviewCount", this.reviewMapper.reviewCount(pd_id));
+		model.addAttribute("reviews", this.reviewMapper.getReviews(pd_id));
+		
+		return "product/viewDetail.jsp";  
+	}	
 
 
 } // class

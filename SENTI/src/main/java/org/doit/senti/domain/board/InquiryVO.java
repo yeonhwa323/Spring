@@ -25,9 +25,9 @@ public class InquiryVO {
 	private String memberId;
 	private String filesrc;
 	
-	// p445 ì°¸ê³ 
-	// ìŠ¤í”„ë§ì—ì„œ ì§€ì›í•˜ëŠ” íŒŒì¼ ì—…ë¡œë“œ ê¸°ëŠ¥ì„ (4)ë°©ë²•ì¸
-	// ì»¤ë§¨ë“œ ê°ì²´ë¥¼ ì´ìš©í•˜ëŠ” ë°©ë²•
+	// p445 Âü°í
+	// ½ºÇÁ¸µ¿¡¼­ Áö¿øÇÏ´Â ÆÄÀÏ ¾÷·Îµå ±â´ÉÀ» (4)¹æ¹ıÀÎ
+	// Ä¿¸Çµå °´Ã¼¸¦ ÀÌ¿ëÇÏ´Â ¹æ¹ı
 	// <input type="file" id="txtFile" name="file" />
 	
 	private List<MultipartFile> inquiryFileList;

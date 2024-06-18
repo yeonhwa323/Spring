@@ -128,6 +128,7 @@ public class CustomerController {
 	public String noticeReg(NoticeVO notice, HttpServletRequest request)throws Exception {
 		CommonsMultipartFile multipartFile = notice.getFile();
 		String uploadRealPath = null;
+		
 		if (!multipartFile.isEmpty()) {
 			uploadRealPath = request.getServletContext().getRealPath("/customer/upload");
 			System.out.println("> uploadRealPath : "+ uploadRealPath);
@@ -141,6 +142,7 @@ public class CustomerController {
 			notice.setFilesrc(filesystemName);
 		}
 		notice.setWriter("yeon");
+		
 		int rowCount = this.noticeDao.insert(notice);
 		if (rowCount ==1) {  // 글쓰기 성공
 			return "redirect:notice.htm";  // 스프링 [리다이렉트] redirect: 접두사 사용 / 포워딩

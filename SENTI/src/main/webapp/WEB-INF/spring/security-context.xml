@@ -26,6 +26,7 @@
         <security:intercept-url pattern="/signUp/join.do" access="permitAll"/>
         <security:intercept-url pattern="/signUp/login.do" access="permitAll"/>
         <security:intercept-url pattern="/signUp/logout.do" access="permitAll"/>
+        <security:intercept-url pattern="/inquiry/*" access="permitAll"/>
         <security:intercept-url pattern="/signUp/**" access="permitAll"/>
         <security:intercept-url pattern="/login" access="permitAll"/>
         <security:intercept-url pattern="/main.do" access="permitAll"/>

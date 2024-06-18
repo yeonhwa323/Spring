@@ -1502,9 +1502,12 @@ input[type=radio]:checked+label:before {
 						산업안전보건법 제 41조 시행령에 근거하여 2018년 10월 18일 부터 산업안전보건법에 따라 고객응대근로자 보호조치를
 						시행하고 있습니다.<br> 고객응대근로자에게 폭언, 폭행 등을 하지 말아주세요.
 					</p>
-					<form action="/inquiry/inquiryReg.do?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data" >
+					<form
+						action="/inquiry/inquiryReg.do?${_csrf.parameterName}=${_csrf.token}"
+						method="post" enctype="multipart/form-data" >
 						<h3>1:1 문의 작성</h3>
 						<div class="tb_lst">
+
 							<li>
 								<div class="in_td">
 									<h3>구매관련문의</h3>
@@ -1536,6 +1539,9 @@ input[type=radio]:checked+label:before {
 								</div>
 							</li>
 							<li>
+								
+
+
 							<li>
 								<div class="in_td">
 									<h3>일반상담문의</h3>
@@ -1599,6 +1605,7 @@ input[type=radio]:checked+label:before {
 									<p class="txt">${ memberInfo.memberId }[${ memberInfo.gradeId }]</p>
 								</div>
 							</li>
+
 							<li class="tit_row">
 								<div class="in_td">
 									<strong for="u_title" class="type">제목</strong>
@@ -1621,14 +1628,19 @@ input[type=radio]:checked+label:before {
 											class="field_inp ng-untouched ng-pristine ng-invalid"></textarea>
 									</div>
 								</div>
-							</li>							
+
+							</li>
+							
 							<li class="add_img">
 								<div class="in_td">
 									<strong class="type">사진첨부</strong>
 								</div>
 								<label for="filesrc">이미지 업로드:</label>
             					<input type="file" id="filesrc" name="inquiryImage" />
-								<div class="in_td_photo">
+								<!-- <div class="in_td_photo">
+									
+									<label for="filesrc" >사진파일 첨부하기</label> 
+									<input type="file"  id="filesrc" name="inquiryImage" />
 									<ul class="info_lst">
 										<li>상품 불량 및 오배송의 경우, 해당 제품 사진을 등록 부탁드립니다.</li>
 										<li class="point">파일명은 영문만 가능하며, 파일당 최대 10MB 의<br>
@@ -1638,7 +1650,7 @@ input[type=radio]:checked+label:before {
 										</li>
 										<li>첨부파일은 최대 2개까지 등록가능합니다.</li>
 									</ul>
-								</div>
+								</div> -->
 							</li>
 
 

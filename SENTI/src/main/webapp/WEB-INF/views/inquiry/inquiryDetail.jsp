@@ -2408,8 +2408,9 @@ input[type=radio]:checked+label:before {
 								</p>
 								<p>
 									<strong>내용:</strong>
+									${inquiryInfo.inquiryContent}
 								</p>
-								<p>${inquiryInfo.inquiryContent}</p>
+								
 							</div>
 							<br>
 							<div>

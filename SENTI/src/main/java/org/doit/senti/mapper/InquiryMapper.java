@@ -23,9 +23,6 @@ public interface InquiryMapper {
 		// 문의내역 추가하는 메서드
 		public int insert(InquiryVO inquiry) throws ClassNotFoundException, SQLException;
 		
-		public void getfilesrc();
-		public void setFilesrc(String filesystemName);
-		
 		// 문의내역의 목록을 List 컬렉션으로 반환하는 메서드		
 		public List<InquiryVO> getInquirys(String memberId) throws ClassNotFoundException, SQLException;
 		

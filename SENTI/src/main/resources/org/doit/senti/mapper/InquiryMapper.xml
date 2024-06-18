@@ -21,12 +21,12 @@
   	<!-- buyInquiry 라디오버튼 선택시 -->
 	<insert id="insert">
 		INSERT INTO inquiry
-		(inquiry_id, inquiry_title, inquiry_content, inquiry_date <if test="filesrc != null">, filesrc</if> , member_id <if test="buyInquiry != null">, buy_inquiry </if>
+		(inquiry_id, inquiry_title, inquiry_content, inquiry_date, filesrc, member_id <if test="buyInquiry != null">, buy_inquiry </if>
 		<if test="generalInquiry != null">, general_inquiry </if> <if test="etcInquiry != null">, etc_inquiry </if>
 		 )
 		VALUES(
-			(SELECT NVL(MAX(TO_NUMBER(inquiry_id)),0)+1 FROM product), #{inquiryTitle, jdbcType=VARCHAR}, #{inquiryContent, jdbcType=VARCHAR} , SYSDATE
-			<if test="filesrc">, #{filesrc, javaType=String, jdbcType=VARCHAR} </if> , #{memberId, jdbcType=VARCHAR} <if test="buyInquiry != null">, #{buyInquiry}</if>  
+			(SELECT NVL(MAX(TO_NUMBER(inquiry_id)),0)+1 FROM inquiry), #{inquiryTitle, jdbcType=VARCHAR}, #{inquiryContent, jdbcType=VARCHAR} , SYSDATE,
+			#{filesrc}, #{memberId, jdbcType=VARCHAR} <if test="buyInquiry != null">, #{buyInquiry}</if>  
 			<if test="generalInquiry != null">, #{generalInquiry} </if> <if test="etcInquiry != null">, #{etcInquiry}  </if>
 			)
 	</insert>

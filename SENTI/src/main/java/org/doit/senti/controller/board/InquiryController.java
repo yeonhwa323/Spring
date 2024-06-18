@@ -122,7 +122,7 @@ public class InquiryController {
 			InquiryVO inquiryInfo
 			, HttpServletRequest request) throws Exception {
 		log.info("> InquiryController.Insert() Post...");
-
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		String loginMemberId = userDetails.getUsername();	
@@ -131,31 +131,30 @@ public class InquiryController {
 
 		MultipartFile inquiryImage = inquiryInfo.getInquiryImage();
 		String uploadRealPath = null;
-
+		String filesystemName = null;
+		int rowCount = 0;
 		if ( !inquiryImage.isEmpty() ) {
-			uploadRealPath = request.getServletContext().getRealPath("/inquiry/upload"); //배포된경로의 파일에 저장
+			uploadRealPath = request.getServletContext().getRealPath("/upload"); //배포된경로의 파일에 저장
 			System.out.println("> uploadRealPath : " + uploadRealPath);
-
+			log.info("uploadRealPath : " + uploadRealPath);
 			String originalFilename = inquiryImage.getOriginalFilename();
 
-			String filesystemName = getFileNameCheck(uploadRealPath, originalFilename);
+			filesystemName = getFileNameCheck(uploadRealPath, originalFilename);
 			
-			try {
-				File dest = new File(uploadRealPath, filesystemName);
-				inquiryImage.transferTo(dest); // 실제 파일 저장
+			
+			File dest = new File(uploadRealPath, filesystemName);
+			inquiryImage.transferTo(dest); // 실제 파일 저장
 			    //...
-			} catch (FileNotFoundException e) {
-			    e.printStackTrace();
-			}		
-
-			inquiryMapper.setFilesrc(filesystemName);
+			
+			inquiryInfo.setFilesrc("../upload/" + filesystemName);
 
 		} 
 
-		int rowCount = this.inquiryMapper.insert(inquiryInfo);
+		rowCount = this.inquiryMapper.insert(inquiryInfo);
 
-		if (rowCount ==1) {  // 글쓰기 성공
-			return "redirect:inquiry/inquiry.do";   // 스프링 [리다이렉트] redirect: 접두사 사용 / 포워딩
+		if (rowCount > 0) {  // 글쓰기 성공
+			// return "redirect:inquiry/inquiry.do";   // 스프링 [리다이렉트] redirect: 접두사 사용 / 포워딩
+			return "main.jsp";
 		}else {  // 글쓰기 실패
 			return "inquiry/inquiryReg.jsp?error";
 		}

@@ -1544,7 +1544,7 @@ legend {
 }
 
 .blind, legend {
-	overflow: hidden;
+	/* overflow: hidden; */
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -2261,7 +2261,15 @@ input[type=radio]:checked+label:before {
     line-height: 60px;
     border-right: 1px solid var(--ruler-semantic-color-border-line);
 }
-
+.btn-back {
+	display: inline-block;
+	padding: 10px 20px;
+	color: #fff;
+	border : 1px solid grey;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-right: 10px; /* 수정하기 버튼과 목록으로 돌아가기 버튼 사이의 간격 조정 */
+}
 
 </style>
 </head>
@@ -2371,9 +2379,8 @@ input[type=radio]:checked+label:before {
 						</div>
 						<div class="pc_view">
 							<div class="write_btnbx">
-								<a class="btn_black" href="/inquiry/inquiryReg.do">1:1문의 쓰기 수정 후</a>
-								<a class="btn_black" href="/inquiry/inquiryReg2.do">수정 전</a>
-							</div>
+								<a class="btn_black" href="/inquiry/inquiryReg.do">1:1문의 쓰기</a>
+															</div>
 						</div>
 					</div>
 					<!-- 문의내역 테이블 -->
@@ -2381,11 +2388,11 @@ input[type=radio]:checked+label:before {
 						<thead class="my_tbl my_tbl_tit">
 							<tr class="my_tbl_info">
 								<th class="inquiryId">상담번호</th>
-								<th class="type">상담구분</th>
+								<!-- <th class="type">상담구분</th> -->
 								<th class="title">상담제목</th>
 								<th class="date">작성일</th>
 								<th class="state">답변유무</th>
-								<th class="tblbtn"><span class="blind" hidden="삭제"></span></th>
+								<th class="state"><span class="state"></span></th>
 							</tr>
 						</thead>
 						<c:forEach items="${ inquiry }" var="InquiryVO">
@@ -2394,17 +2401,18 @@ input[type=radio]:checked+label:before {
 								<c:when test="${ not empty inquiry}">									
 										<tr class="my_tbl_content">
 											<td class="inquiryId">${ InquiryVO.inquiryId }</td>
-											<td class="type">
+											<%-- <td class="type">
 											<%
     										String inquiryName = request.getParameter("inquiryType");
 											%>
-											</td> 
+											</td> --%> 
 											<td class="title"><a href="inquiryDetail.do?inquiryId=${ InquiryVO.inquiryId }">${ InquiryVO.inquiryTitle }</a></td>
 											<td class="date"><fmt:formatDate
 													value="${ InquiryVO.inquiryDate }" pattern="yyyy-MM-dd" /></td>
-											<td class="state">아직...</td>
-											<th class="tblbtn"><span type="button" class="blind">삭제</span>
-											</th>
+											<td class="state"><font color:red>X</font></td>
+											<td class="state">
+												<a href="/inquiry/inquiryDel.do?inquiryId="+inquiryId class="btn-back"><button>삭제</button></a>
+											</td>
 										</tr>
 									
 								</c:when>
